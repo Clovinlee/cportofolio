@@ -1,0 +1,32 @@
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --white:#EEEEEE;
+  --darker-white:#cecccc;
+  --blue:#00ADB5;
+  --orange:#E9B824;
+  --darker-blue:#0c9aa1;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+html{
+  font-size: 16px;
+}
+
+body {
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  color: var(--white);
+  font-weight: normal;
+  line-height: 1;
+  font-size:16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

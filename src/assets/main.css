@@ -1,0 +1,63 @@
+@import './base.css';
+/* @import '/node_modules/bootstrap/dist/css/bootstrap.min.css'; */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@200;300;400;700;900&family=Raleway:wght@200;300;400;500;700;800&display=swap');
+
+#app{
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+  overflow-x: hidden;
+}
+
+.bg-pink{
+  background-color: pink;
+}
+
+.no-padding{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+:root{
+  --d1: 10rem;
+}
+
+.bottom-25{
+  bottom:25%;
+}
+
+.top-25{
+  top:25%;
+}
+
+.start-25{
+  left:25%;
+}
+
+.end-25{
+  right:25%;
+}
+
+.wrapper{
+  display: flex;
+  width: 100vw;
+  background-image: url(/src/assets/images/Stressed\ Linen.png);
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+}
+
+.d1{
+  font-size: calc(var(--d1));
+}
+
+.w-65{
+  width: 65%;
+}
+
+.rotate-vertical{
+  rotate: 180deg;
+  writing-mode: vertical-lr;
+}
