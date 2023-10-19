@@ -36,10 +36,10 @@ onMounted(() => {
   function skills() {
     let tl_skills = gsap.timeline();
 
-    tl_skills.fromTo(desktop.value, { x: '-200%' }, { duration: 0.8, x: '0' });
-    tl_skills.fromTo(web.value, { y: '-200%' }, { duration: 0.8, y: '0' });
-    tl_skills.fromTo(android.value, { x: '200%' }, { duration: 0.8, x: '0' });
-    tl_skills.fromTo(fullstack.value, { y: '200%' }, { duration: 0.8, y: '0' });
+    tl_skills.fromTo(desktop.value, { x: '-200%' }, { duration: 1, x: '0' });
+    tl_skills.fromTo(web.value, { y: '-200%' }, { duration: 1, y: '0' });
+    tl_skills.fromTo(android.value, { x: '200%' }, { duration: 1, x: '0' });
+    tl_skills.fromTo(fullstack.value, { y: '200%' }, { duration: 1, y: '0' });
 
     return tl_skills;
   }

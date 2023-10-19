@@ -1,7 +1,9 @@
 @import './base.css';
 /* @import '/node_modules/bootstrap/dist/css/bootstrap.min.css'; */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@200;300;400;700;900&family=Raleway:wght@200;300;400;500;700;800&display=swap');
+@import './scrollbar.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@200;300;400;700;800;900&family=Raleway:wght@200;300;400;500;700;800&display=swap');
 
 #app{
   font-family: 'Raleway', sans-serif;
@@ -40,6 +42,10 @@
   right:25%;
 }
 
+.vh-50{
+  height: 50vh;
+}
+
 .wrapper{
   display: flex;
   width: 100vw;
@@ -57,7 +63,55 @@
   width: 65%;
 }
 
+.w-30{
+  width:30%;
+}
+
+.w-35{
+  width:35%;
+}
+
+.w-40{
+  width:40%;
+}
+
+.w-45{
+  width:45%;
+}
+
 .rotate-vertical{
   rotate: 180deg;
   writing-mode: vertical-lr;
 }
+
+.text-justify{
+  text-align: justify;
+}
+
+.max-line-1{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.max-line-2{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.max-line-3{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
