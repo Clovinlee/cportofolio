@@ -6,13 +6,18 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import ProjectCard from '../components/ProjectCard.vue';
 
 import { data_projects } from '../data-projects';
+import windowScreenSize from '../helper/windowScreen';
+
+const { isMobile } = windowScreenSize(500);
 
 gsap.registerPlugin(ScrollTrigger);
 
-onMounted(() => {
-    console.log("Data\n----------")
-    console.log(data_projects);
+const text_my = ref(null);
+const text_project = ref(null);
+const text_scroll = ref(null);
 
+onMounted(() => {
+    console.log(isMobile.value)
     //setup smooth scroll using lenis
     let container = document.getElementById("section-project");
     let content = document.getElementById("section-project-content");
@@ -24,22 +29,23 @@ onMounted(() => {
     let left_project = gsap.utils.toArray('.left-project');
     let right_project = gsap.utils.toArray('.right-project');
 
-    console.log(left_project);
-
-    for (let i = 0; i < left_project.length; i++) {
+    for (let i = 0; i < right_project.length; i++) {
         let lp = left_project[i];
         let rp = right_project[i];
 
-        let lp_anim = gsap.timeline({
-            scrollTrigger: {
-                scroller: '#section-project',
-                trigger: lp,
-                start: "-50% center",
-                end: "bottom 70%",
-                scrub: true,
-                // markers: true,
-            }
-        });
+        if (lp != null) {
+            let lp_anim = gsap.timeline({
+                scrollTrigger: {
+                    scroller: '#section-project',
+                    trigger: lp,
+                    start: "-50% center",
+                    end: "bottom 70%",
+                    scrub: true,
+                    // markers: true,
+                }
+            });
+            lp_anim.fromTo(lp, { xPercent: -50, yPercent: -50, opacity: 0 }, { xPercent: 0, yPercent: 0, opacity: 1, });
+        }
 
         let rp_anim = gsap.timeline({
             scrollTrigger: {
@@ -52,25 +58,28 @@ onMounted(() => {
             }
         });
 
-        lp_anim.fromTo(lp, { xPercent: -50, yPercent: -50, opacity: 0 }, { xPercent: 0, yPercent: 0, opacity: 1, });
         rp_anim.fromTo(rp, { xPercent: 50, yPercent: -50, opacity: 0 }, { xPercent: 0, yPercent: 0, opacity: 1, });
     }
 
-    for (let i = 0; i < left_timestamp.length; i++) {
+    for (let i = 0; i < right_timestamp.length; i++) {
 
         let lt = left_timestamp[i];
         let rt = right_timestamp[i];
 
-        let lt_anim = gsap.timeline({
-            scrollTrigger: {
-                scroller: '#section-project',
-                trigger: lt,
-                start: "top 85%",
-                end: "500% 75%",
-                scrub: true,
-                // markers: true,
-            }
-        });
+        if (lt != null) {
+            let lt_anim = gsap.timeline({
+                scrollTrigger: {
+                    scroller: '#section-project',
+                    trigger: lt,
+                    start: "top 85%",
+                    end: "500% 75%",
+                    scrub: true,
+                    // markers: true,
+                }
+            });
+            lt_anim.fromTo(lt, { xPercent: 100, }, { xPercent: 0, });
+        }
+
 
         let rt_anim = gsap.timeline({
             scrollTrigger: {
@@ -83,9 +92,13 @@ onMounted(() => {
             }
         });
 
-        lt_anim.fromTo(lt, { xPercent: 100, }, { xPercent: 0, });
         rt_anim.fromTo(rt, { xPercent: -100, }, { xPercent: 0, });
     }
+
+    let tl = gsap.timeline({});
+    tl.fromTo(text_my.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, delay: 0.6 });
+    tl.fromTo(text_project.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.8");
+    tl.fromTo(text_scroll.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<1");
 
 });
 
@@ -93,16 +106,19 @@ onMounted(() => {
 </script>
 
 <template>
-    <section id="section-project" style="overflow-y:scroll; overflow-x: hidden;" class="w-100">
+    <section id="section-project" style="overflow-y:scroll;" class="w-100">
         <div id="section-project-content"> <!-- LENIS CONTAINER -->
             <div class="spacer d-flex flex-column justify-content-center align-items-center mb-5">
-                <h1 style="font-family: 'Lato'; font-weight: 900; font-size: 5rem;" class="text-center">My <span
-                        style="color: var(--orange); font-family: 'Lato'; font-weight: 900; font-size: 5rem;">Projects.</span>
-                </h1>
-                <small>scroll down below.</small>
+                <div class="lato-header mb-3 d-flex justify-content-center">
+                    <div class="lato-header d-inline-block me-3" ref="text_my">My</div>
+                    <div ref="text_project" class="lato-header d-inline-block" style="color:var(--orange)">Projects.</div>
+                </div>
+                <small ref="text_scroll">scroll down below.</small>
             </div>
-            <div class="d-flex justify-content-center" v-for="(project, idx) in  data_projects ">
-                <div :class="{ invisible: idx % 2 == 1 }">
+            <div class="d-flex"
+                :class="{ 'ms-4': isMobile, 'justify-content-center': !isMobile, 'justify-content-start': isMobile }"
+                v-for="(project, idx) in  data_projects ">
+                <div :class="{ invisible: (idx % 2 == 1) }" v-if="!isMobile">
                     <div class="overflow-hidden">
                         <div class="text-end mb-3 left-timestamp">
                             <h5 class="year">{{ project.date }}</h5>
@@ -119,7 +135,7 @@ onMounted(() => {
                     <div class="line"></div>
                     <div class="circle" v-if="idx == data_projects.length - 1"></div>
                 </div>
-                <div :class="{ invisible: idx % 2 == 0 }">
+                <div :class="{ invisible: idx % 2 == 0 && !isMobile }">
                     <div class="overflow-hidden">
                         <div class="text-start mb-3 right-timestamp">
                             <h5 class="year">{{ project.date }}</h5>
@@ -138,6 +154,18 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.lato-header {
+    font-family: 'Lato';
+    font-weight: 900;
+    font-size: 5rem;
+}
+
+@media (max-width: 500px) {
+    .lato-header {
+        font-size: 4rem;
+    }
+}
+
 .year {
     font-family: 'Lato';
     font-weight: 900;
@@ -169,6 +197,6 @@ onMounted(() => {
 }
 
 .spacer {
-    height: 30vh;
+    height: 40vh;
 }
 </style>

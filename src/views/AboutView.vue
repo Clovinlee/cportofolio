@@ -9,7 +9,7 @@ import 'tippy.js/dist/tippy.css'; //
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { isMobile } = windowScreenSize();
+const { isMobile } = windowScreenSize(400);
 
 const aboutme = ref(null);
 const hr = ref(null);
@@ -73,26 +73,79 @@ onMounted(() => {
   let tl_about = about().play();
   let tl_skills = skills();
 
-  ScrollTrigger.create({
-    trigger: paragraphs.value,
-    start: '8% 10%',
-    end: '110% 50%',
-    scroller: '#section-about',
-    onEnter: () => {
-      console.log("onEnter");
+  function playAbout(opt) {
+    let reverse = opt?.reverse ?? false;
+    if (reverse) {
+      return tl_about.timeScale(2).reverse();
+    } else {
+      return tl_about.timeScale(1).play();
+    }
+  }
 
-    },
-    onLeave: () => {
-      console.log("onLeave");
-    },
-    onLeaveBack: () => {
-      console.log("onLeaveBack");
-    },
-    onEnterBack: () => {
-      console.log("onEnterBack");
-    },
-    markers: true,
-  });
+  function playSkills(opt) {
+    let reverse = opt?.reverse ?? false;
+    if (reverse) {
+      return tl_skills.timeScale(2).reverse();
+    } else {
+      return tl_skills.timeScale(1).play();
+    }
+  }
+
+  function setupScrollTrigger() {
+    ScrollTrigger.create({
+      trigger: paragraphs.value,
+      start: 'top 10%',
+      end: '110% 50%',
+      scroller: '#section-about',
+      onEnter: () => {
+        // Scroll start hits START
+        // ABOUT -> Reverse()
+        playAbout({ reverse: true });
+        // SKILLS -> Play()
+        playSkills();
+      },
+      onEnterBack: () => {
+        // Scroll End hits END REVERSE
+        // ABOUT -> Play()
+        playAbout();
+        // SKILLS -> Reverse()
+        playSkills({ reverse: true });
+      },
+
+      onLeave: () => {
+        // Scroll End hits END
+      },
+
+      onLeaveBack: () => {
+        // Scroll START hits START REVERSe
+      },
+    });
+
+    ScrollTrigger.create({
+      trigger: language.value,
+      start: 'top 50%',
+      end: 'bottom 50%',
+      scroller: '#section-about',
+      onEnter: () => {
+        // console.log("onenter");
+        playSkills();
+        playAbout({ reverse: true });
+      },
+      onEnterBack: () => {
+        // console.log("onleaveback");
+        playSkills({ reverse: true });
+        playAbout();
+      },
+      onLeave: () => {
+        // console.log("onleave");
+      },
+      onLeaveBack: () => {
+        // console.log("onleaveback");
+      },
+    });
+  }
+
+  setupScrollTrigger();
 
   Array.from(document.getElementsByClassName("img-container")).forEach(function (el) {
     tippy(el, {
@@ -107,7 +160,7 @@ onMounted(() => {
 
 </script>
 <template>
-  <section id="section-about" style="overflow-y: scroll" class="w-100">
+  <section id="section-about" style="overflow-y: scroll; overflow-x: hidden;" class="w-100">
     <div id="section-about-content">
       <div class="row d-flex flex-column justify-content-center align-items-center vh-100 mx-auto">
         <div class="col-11 col-sm-9 col-md-7 col-lg-5">
@@ -152,13 +205,12 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="w-50 mx-auto row vh-100 overflow-hidden">
-        <div class="col-12 mt-5">
-          <div ref="language" style="line-height: 1; font-size: 1rem;" class="m-0 p-0 mb-3"><b>Language</b> <b
+      <div class="row vh-100 overflow-hidden">
+        <div class="col-11 col-sm-9 col-md-7 mt-5 mx-auto ">
+          <p ref="language" style="line-height: 1;" class="m-0 p-0 mb-3"><b>Language</b> <b
               style="color:var(--white)">&</b>
-            <b> Framework</b> that I've
-            used in the past
-          </div>
+            <b> Framework</b> that I've used in the past
+          </p>
           <hr ref="hr2" style="border: 2px solid var(--white); opacity:1" class="m-0 p-0 mb-2">
           <div class="d-flex flex-wrap gap-3 justify-content-start">
             <div v-for="data in skillImages" class="img-container">
@@ -170,8 +222,13 @@ onMounted(() => {
     </div>
   </section>
 </template>
-
 <style scoped>
+@media (max-width: 500px) and (min-height:800px) {
+  p {
+    font-size: clamp(12px, 1.7vh, 26px);
+  }
+}
+
 img {
   max-width: 100%;
   max-height: 100%;

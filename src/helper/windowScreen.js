@@ -3,10 +3,11 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 export default function windowScreenSize(mobileWidth = 576) {
     let isMobile = ref(false);
-
+    // Base value
+    isMobile.value = window.innerWidth <= mobileWidth;
+    
     const refreshScreenSize = function (e) {
-        isMobile.value = e.target.innerWidth < 500;
-        // console.log(isMobile.value);
+        isMobile.value = e.target.innerWidth < mobileWidth;
     };
     
     onMounted(() => {

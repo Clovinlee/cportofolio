@@ -53,6 +53,7 @@
   background-size: cover;
   background-repeat: repeat;
   background-position: center center;
+  position: relative;
 }
 
 .d1{
@@ -115,3 +116,10 @@
   -webkit-box-orient: vertical;
 }
 
+.orange{
+  color: var(--orange);
+}
+
+.blue{
+  color: var(--blue);
+}

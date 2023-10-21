@@ -17,7 +17,8 @@
 }
 
 html{
-  font-size: 16px;
+  /* font-size: 16px; */
+  font-size: clamp(12px, 1.2vw, 26px);
 }
 
 body {
