@@ -49,10 +49,11 @@
 .wrapper{
   display: flex;
   width: 100vw;
-  background-image: url(/src/assets/images/Stressed\ Linen.png);
+  background-image: url(/images/Stressed\ Linen.png);
   background-size: cover;
   background-repeat: repeat;
   background-position: center center;
+  position: relative;
 }
 
 .d1{
@@ -115,3 +116,10 @@
   -webkit-box-orient: vertical;
 }
 
+.orange{
+  color: var(--orange);
+}
+
+.blue{
+  color: var(--blue);
+}

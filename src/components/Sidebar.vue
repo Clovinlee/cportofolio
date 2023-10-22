@@ -11,7 +11,7 @@
 <style scoped>
 nav {
     font-family: 'Bebas Neue', sans-serif;
-    background-image: url(/src/assets/images/Noisy\ Net.png);
+    background-image: url(/images/Noisy\ Net.png);
 }
 
 nav a {

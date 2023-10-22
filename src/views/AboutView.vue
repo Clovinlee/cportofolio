@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, toDisplayString } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import windowScreenSize from '../helper/windowScreen';
 import { gsap } from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -9,7 +9,7 @@ import 'tippy.js/dist/tippy.css'; //
 
 gsap.registerPlugin(ScrollTrigger);
 
-const { isMobile } = windowScreenSize();
+const { isMobile } = windowScreenSize(400);
 
 const aboutme = ref(null);
 const hr = ref(null);
@@ -43,63 +43,104 @@ let skillImages = [
   { img: 'gsap.svg', title: 'Green Sock' }
 ];
 
+const { animState, setAnimState } = inject('animState');
+const idxAnim = 1;
 
 onMounted(() => {
 
-  function about() {
-    let tl = gsap.timeline({ paused: true });
-    tl.fromTo(hr.value, { rotateX: 90 }, { duration: 1, rotateX: 0, delay: 0.5 });
-    tl.fromTo(aboutme.value, { x: '-100%' }, { x: 0, duration: 0.6, })
-    tl.fromTo(paragraphs.value, { opacity: 0, x: '-100%' }, { opacity: 1, x: 0, duration: 1, })
-
-    return tl;
-  }
-
-  function skills() {
-    let icons = gsap.utils.toArray('.img-container');
-
-    let tl = gsap.timeline({ paused: true });
-    tl.fromTo(hr2.value, { rotationY: '-90%' }, { duration: 1, rotationY: 0 });
-    tl.fromTo(language.value, { y: '100%', opacity: 0, }, { y: 0, opacity: 1, duration: 1.2, })
-    tl.fromTo(icons, { opacity: 0, y: '100%' }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: -0.4 })
-    return tl;
-  }
-
   let container = document.getElementById("section-about");
   let content = document.getElementById("section-about-content");
-
   setupLenis(container, content);
 
-  let tl_about = about().play();
-  let tl_skills = skills();
+  function setupAnim() {
+    function about() {
+      let tl = gsap.timeline({ paused: true });
+      tl.fromTo(hr.value, { rotateX: 90 }, { duration: 1, rotateX: 0, delay: 0.5 });
+      tl.fromTo(aboutme.value, { x: '-100%' }, { x: 0, duration: 0.6, })
+      tl.fromTo(paragraphs.value, { opacity: 0, x: '-100%' }, { opacity: 1, x: 0, duration: 1, })
 
-  ScrollTrigger.create({
-    trigger: paragraphs.value,
-    start: '8% 10%',
-    end: '110% 50%',
-    scroller: '#section-about',
-    onEnter: () => {
-      console.log("onEnter");
+      return tl;
+    }
 
-    },
-    onLeave: () => {
-      console.log("onLeave");
-    },
-    onLeaveBack: () => {
-      console.log("onLeaveBack");
-    },
-    onEnterBack: () => {
-      console.log("onEnterBack");
-    },
-    markers: true,
-  });
+    function skills() {
+      let icons = gsap.utils.toArray('.img-container');
 
+      let tl = gsap.timeline({ paused: true });
+      tl.fromTo(hr2.value, { rotationY: '-90%' }, { duration: 1, rotationY: 0 });
+      tl.fromTo(language.value, { y: '100%', opacity: 0, }, { y: 0, opacity: 1, duration: 1.2, })
+      tl.fromTo(icons, { opacity: 0, y: '100%' }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, delay: -0.4 })
+      return tl;
+    }
+
+    let tl_about = about().play();
+    let tl_skills = skills();
+
+    function playAbout(opt) {
+      let reverse = opt?.reverse ?? false;
+      if (reverse) {
+        return tl_about.timeScale(2).reverse();
+      } else {
+        return tl_about.timeScale(1).play();
+      }
+    }
+
+    function playSkills(opt) {
+      let reverse = opt?.reverse ?? false;
+      if (reverse) {
+        return tl_skills.timeScale(2).reverse();
+      } else {
+        return tl_skills.timeScale(1).play();
+      }
+    }
+
+    function setupScrollTrigger() {
+      ScrollTrigger.create({
+        trigger: paragraphs.value,
+        start: '30% 10%',
+        end: '110% 50%',
+        scroller: '#section-about',
+        onEnter: () => {
+          // Scroll start hits START
+          // ABOUT -> Reverse()
+          // playAbout({ reverse: true });
+          // SKILLS -> Play()
+          playSkills().then(() => {
+            setAnimState({ position: idxAnim, value: true });
+          });
+        },
+        onEnterBack: () => {
+          // Scroll End hits END REVERSE
+          // ABOUT -> Play()
+          // playAbout();
+          // SKILLS -> Reverse()
+          // playSkills({ reverse: true });
+        },
+
+        onLeave: () => {
+          // Scroll End hits END
+        },
+
+        onLeaveBack: () => {
+          // Scroll START hits START REVERSe
+        },
+      });
+    }
+
+    setupScrollTrigger();
+
+  }
+
+  if (!animState.value[idxAnim]) {
+    setupAnim();
+  }
+
+
+  // Setup Tippy Hover Text
   Array.from(document.getElementsByClassName("img-container")).forEach(function (el) {
     tippy(el, {
       content: el.children[0].alt,
       animation: 'fade',
       arrow: true,
-
     });
   });
 
@@ -107,7 +148,7 @@ onMounted(() => {
 
 </script>
 <template>
-  <section id="section-about" style="overflow-y: scroll" class="w-100">
+  <section id="section-about" style="overflow-y: scroll; overflow-x: hidden;" class="w-100">
     <div id="section-about-content">
       <div class="row d-flex flex-column justify-content-center align-items-center vh-100 mx-auto">
         <div class="col-11 col-sm-9 col-md-7 col-lg-5">
@@ -152,17 +193,16 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="w-50 mx-auto row vh-100 overflow-hidden">
-        <div class="col-12 mt-5">
-          <div ref="language" style="line-height: 1; font-size: 1rem;" class="m-0 p-0 mb-3"><b>Language</b> <b
+      <div class="row vh-100 overflow-hidden">
+        <div class="col-11 col-sm-9 col-md-7 mt-5 mx-auto ">
+          <p ref="language" style="line-height: 1;" class="m-0 p-0 mb-3"><b>Language</b> <b
               style="color:var(--white)">&</b>
-            <b> Framework</b> that I've
-            used in the past
-          </div>
+            <b> Framework</b> that I've used in the past
+          </p>
           <hr ref="hr2" style="border: 2px solid var(--white); opacity:1" class="m-0 p-0 mb-2">
           <div class="d-flex flex-wrap gap-3 justify-content-start">
             <div v-for="data in skillImages" class="img-container">
-              <img :src="'/src/assets/images/icons/' + data.img" :alt="data.title" srcset="">
+              <img :src="'/images/icons/' + data.img" :alt="data.title" srcset="">
             </div>
           </div>
         </div>
@@ -170,8 +210,13 @@ onMounted(() => {
     </div>
   </section>
 </template>
-
 <style scoped>
+@media (max-width: 500px) and (min-height:800px) {
+  p {
+    font-size: clamp(12px, 1.7vh, 26px);
+  }
+}
+
 img {
   max-width: 100%;
   max-height: 100%;

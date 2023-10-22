@@ -73,8 +73,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="project-card" ref="card"
-        :style="{ 'background-image': `url('/src/assets/images/projects/${props.image}')` }">
+    <div class="project-card" ref="card" :style="{ 'background-image': `url('/images/projects/${props.image}')` }">
         <div class="project-card-shade" ref="shade"></div>
         <div class="project-content" ref="content">
             <div ref="title" class=''>
@@ -98,8 +97,12 @@ onMounted(() => {
 <style scoped>
 .project-card {
     border-radius: 10px;
-    height: 230px;
-    width: 230px;
+    /* height: 230px;
+    width: 230px; */
+
+    height: clamp(200px, 17vw, 300px);
+    width: clamp(200px, 17vw, 300px);
+
     /* margin: 20px 0px; */
     background-color: antiquewhite;
     /* background-image: v-bind(image); */
@@ -118,8 +121,9 @@ onMounted(() => {
     overflow: hidden;
 
     border: 2px solid var(--grey);
-
 }
+
+@media (max-width: 500px) {}
 
 .project-content {
     z-index: 99;
