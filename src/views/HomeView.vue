@@ -3,7 +3,6 @@ import { ref, onMounted, inject } from 'vue'
 import windowScreenSize from '../helper/windowScreen';
 import { gsap } from 'gsap';
 
-
 const { isMobile } = windowScreenSize(576);
 
 const hrtop = ref(null);
