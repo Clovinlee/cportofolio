@@ -7,6 +7,7 @@ import ProjectCard from '../components/ProjectCard.vue';
 
 import { data_projects } from '../data-projects';
 import windowScreenSize from '../helper/windowScreen';
+import LoadingScreen from '../components/LoadingScreen.vue';
 
 const { isMobile } = windowScreenSize(500);
 
@@ -18,6 +19,7 @@ const text_scroll = ref(null);
 
 const { animState, setAnimState } = inject('animState');
 const idxAnim = 2;
+const transitionAnimDelay = inject('transitionAnimDelay');
 
 onMounted(() => {
     //setup smooth scroll using lenis
@@ -98,7 +100,7 @@ onMounted(() => {
     }
 
     if (!animState.value[idxAnim]) {
-        let tl = gsap.timeline({});
+        let tl = gsap.timeline({ delay: transitionAnimDelay.transitionAnimDelay });
         tl.fromTo(text_my.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, delay: 0.6 });
         tl.fromTo(text_project.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.8");
         tl.fromTo(text_scroll.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<1").then(() => {
@@ -112,6 +114,7 @@ onMounted(() => {
 
 <template>
     <section id="section-project" style="overflow-y:scroll;" class="w-100">
+        <LoadingScreen />
         <div id="section-project-content"> <!-- LENIS CONTAINER -->
             <div class="spacer d-flex flex-column justify-content-center align-items-center mb-5">
                 <div class="lato-header mb-3 d-flex justify-content-center">

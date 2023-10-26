@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import setupLenis from '../helper/lenis_helper';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; //
+import LoadingScreen from '../components/LoadingScreen.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,6 +46,7 @@ let skillImages = [
 
 const { animState, setAnimState } = inject('animState');
 const idxAnim = 1;
+const transitionAnimDelay = inject('transitionAnimDelay');
 
 onMounted(() => {
 
@@ -72,7 +74,7 @@ onMounted(() => {
       return tl;
     }
 
-    let tl_about = about().play();
+    let tl_about = about().play().delay(transitionAnimDelay.transitionAnimDelay);
     let tl_skills = skills();
 
     function playAbout(opt) {
@@ -149,6 +151,7 @@ onMounted(() => {
 </script>
 <template>
   <section id="section-about" style="overflow-y: scroll; overflow-x: hidden;" class="w-100">
+    <LoadingScreen />
     <div id="section-about-content">
       <div class="row d-flex flex-column justify-content-center align-items-center vh-100 mx-auto">
         <div class="col-11 col-sm-9 col-md-7 col-lg-5">

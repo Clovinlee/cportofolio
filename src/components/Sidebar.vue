@@ -12,6 +12,7 @@
 nav {
     font-family: 'Bebas Neue', sans-serif;
     background-image: url(/images/Noisy\ Net.png);
+    z-index: 99;
 }
 
 nav a {

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import { useLoadingStore } from '../store/loadingStore';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,6 +35,17 @@ const router = createRouter({
       component: () => import('../views/ContactView.vue')
     }
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  let loadingStore = useLoadingStore();
+  loadingStore.setLoad(true);
+  next();
+});
+
+router.afterEach((to, from) => {
+  let loadingStore = useLoadingStore();
+  loadingStore.setLoad(false);
+});
 
 export default router

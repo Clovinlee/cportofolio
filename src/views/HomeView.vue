@@ -2,6 +2,7 @@
 import { ref, onMounted, inject } from 'vue'
 import windowScreenSize from '../helper/windowScreen';
 import { gsap } from 'gsap';
+import LoadingScreen from '../components/LoadingScreen.vue';
 
 const { isMobile } = windowScreenSize(576);
 
@@ -22,6 +23,8 @@ const chris = ref(null);
 
 const { animState, setAnimState } = inject('animState');
 const idxAnim = 0;
+
+const transitionAnimDelay = inject('transitionAnimDelay');
 
 onMounted(() => {
   // gsap.to(chris.value, { x: '-200%', duration: 0.1, })
@@ -58,7 +61,7 @@ onMounted(() => {
   }
 
   if (!animState.value[idxAnim]) {
-    let tl_master = gsap.timeline();
+    let tl_master = gsap.timeline({ delay: transitionAnimDelay.transitionAnimDelay });
 
     tl_master.add(introduction());
     tl_master.add(summary());
@@ -72,6 +75,7 @@ onMounted(() => {
 </script>
 <template>
   <section class="row w-100 p-0 m-0 g-0" style="overflow-x:hidden">
+    <LoadingScreen />
     <div class="col-12 col-sm-7 d-flex flex-column justify-content-center align-items-center"
       :class="{ 'order-2': isMobile }">
       <div class="overflow-hidden w-75">

@@ -1,9 +1,11 @@
 <script setup>
-import { ref, onMounted, onUnmounted, toDisplayString } from 'vue'
+import { ref, onMounted, inject } from 'vue'
+import LoadingScreen from '../components/LoadingScreen.vue';
 
 const name = ref(null);
 const subject = ref(null);
 const messages = ref(null);
+const transitionAnimDelay = inject('transitionAnimDelay');
 
 function sendEmail(e) {
     e.preventDefault();
@@ -24,6 +26,7 @@ onMounted(() => {
 
 <template>
     <section id="section-project" style="overflow-y:scroll; overflow-x: hidden;" class="w-100">
+        <LoadingScreen />
         <h1 class="text-center mt-3" style="font-weight: 300;">Let's get in <b class="orange"
                 style="font-weight: 600;">Touch</b>
         </h1>
