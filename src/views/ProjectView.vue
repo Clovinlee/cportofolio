@@ -115,6 +115,7 @@ onMounted(() => {
 <template>
     <section id="section-project" style="overflow-y:scroll;" class="w-100">
         <LoadingScreen />
+
         <div id="section-project-content"> <!-- LENIS CONTAINER -->
             <div class="spacer d-flex flex-column justify-content-center align-items-center mb-5">
                 <div class="lato-header mb-3 d-flex justify-content-center">
@@ -133,7 +134,7 @@ onMounted(() => {
                             <div class="year-description">{{ project.type }}</div>
                         </div>
                     </div>
-                    <ProjectCard v-for="p in  project.projects " :title="p.name" :tags="p.tags" :image="p.images[0]"
+                    <ProjectCard v-for="p in  project.projects " :title="p.name" :tags="p.tags" :image="p.images"
                         class="mb-3 left-project">
                         {{ p.description }}
                     </ProjectCard>
@@ -150,7 +151,7 @@ onMounted(() => {
                             <div class="year-description">{{ project.type }}</div>
                         </div>
                     </div>
-                    <ProjectCard v-for="p in  project.projects " :title="p.name" :tags="p.tags" :image="p.images[0]"
+                    <ProjectCard v-for="p in  project.projects " :title="p.name" :tags="p.tags" :image="p.images"
                         class="mb-3 right-project">
                         {{ p.description }}
                     </ProjectCard>

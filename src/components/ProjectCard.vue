@@ -2,10 +2,14 @@
 import { ref, onMounted, useSlots } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
+import FancyBox from '../components/FancyBox.vue';
+import windowScreenSize from '../helper/windowScreen';
+
 gsap.registerPlugin(ScrollTrigger);
 
 const props = defineProps(['title', 'tags', 'image'])
 
+const { isMobile } = windowScreenSize(500);
 
 const card = ref(null);
 const content = ref(null);
@@ -16,6 +20,7 @@ const body = ref(null);
 const tags = ref(null);
 const shade = ref(null);
 
+const rawWords = useSlots().default()[0].children;
 const words = useSlots().default()[0].children.split(" ");
 
 // const image = ref(url('/src/assets/images/projects/' + props.image));
@@ -73,25 +78,43 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="project-card" ref="card" :style="{ 'background-image': `url('/images/projects/${props.image}')` }">
-        <div class="project-card-shade" ref="shade"></div>
-        <div class="project-content" ref="content">
-            <div ref="title" class=''>
-                <div class="project-title max-line-2 px-2">
-                    {{ props.title }}
+    <FancyBox>
+        <div :id="'dialog-content-' + props.title" style="display:none; width: 75%;">
+            <h2 class="">{{ props.title }}</h2>
+            <p :style="{ fontSize: isMobile ? '1rem' : '1.2rem' }">{{ rawWords }}</p>
+            <FancyBox :options="{
+                Carousel: {
+                    infinite: true,
+
+                },
+            }">
+                <a :href="`/images/projects/${img}`" v-for="img in  props.image " data-fancybox="gallery">
+                    <img :src="`/images/projects/${img}`" class="m-2"
+                        :style="{ maxWidth: isMobile ? '150px' : '200px', height: 'auto' }" />
+                </a>
+            </FancyBox>
+        </div>
+        <div data-fancybox :data-src="'#dialog-content-' + props.title" class="project-card" ref="card"
+            :style="{ 'background-image': `url('/images/projects/${props.image[0]}')` }">
+            <div class="project-card-shade" ref="shade"></div>
+            <div class="project-content" ref="content">
+                <div ref="title" class=''>
+                    <div class="project-title max-line-2 px-2">
+                        {{ props.title }}
+                    </div>
+                    <hr style="border:2px solid var(--blue); opacity:1;  max-width: 95%;" class="m-0 p-0" ref="hr">
                 </div>
-                <hr style="border:2px solid var(--blue); opacity:1;  max-width: 95%;" class="m-0 p-0" ref="hr">
-            </div>
-            <div ref="body" class="mb-2 px-2">
-                <p class="project-description my-2 mt-3 max-line-3 text-justify">
-                    <slot></slot>
-                </p>
-                <div class="project-tags d-flex flex-wrap gap-1 mt-1" ref="tags">
-                    <span class="badge " v-for="tag in props.tags">{{ tag }}</span>
+                <div ref="body" class="mb-2 px-2">
+                    <p class="project-description my-2 mt-3 max-line-3 text-justify">
+                        <slot></slot>
+                    </p>
+                    <div class="project-tags d-flex flex-wrap gap-1 mt-1" ref="tags">
+                        <span class="badge " v-for=" tag  in  props.tags ">{{ tag }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </FancyBox>
 </template>
 
 <style scoped>
