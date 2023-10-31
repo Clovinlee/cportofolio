@@ -41,7 +41,8 @@ let skillImages = [
   { img: 'unity.png', title: 'Unity' },
   { img: 'cs.png', title: 'C#' },
   { img: 'java.png', title: 'Java' },
-  { img: 'gsap.svg', title: 'Green Sock' }
+  { img: 'gsap.svg', title: 'Green Sock' },
+  { img: 'docker.png', title: 'Docker' },
 ];
 
 const { animState, setAnimState } = inject('animState');
@@ -200,7 +201,7 @@ onMounted(() => {
         <div class="col-11 col-sm-9 col-md-7 mt-5 mx-auto ">
           <p ref="language" style="line-height: 1;" class="m-0 p-0 mb-3"><b>Language</b> <b
               style="color:var(--white)">&</b>
-            <b> Framework</b> that I've used in the past
+            <b> Technology</b> that I've used in the past
           </p>
           <hr ref="hr2" style="border: 2px solid var(--white); opacity:1" class="m-0 p-0 mb-2">
           <div class="d-flex flex-wrap gap-3 justify-content-start">
