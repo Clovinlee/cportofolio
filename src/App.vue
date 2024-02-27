@@ -74,7 +74,7 @@ function onLeave(el, done) {
     </div>
     <SideBar />
     <p class="m-2 p-0 position-absolute left-0 bottom-0" style="font-size: 10px; opacity: 0.4;">Built from scratch ©
-      Chrisanto 2023.
+      Chrisanto 2024.
       All
       Rights Reserved</p>
   </div>

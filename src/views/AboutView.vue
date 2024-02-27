@@ -43,6 +43,8 @@ let skillImages = [
   { img: 'java.png', title: 'Java' },
   { img: 'gsap.svg', title: 'Green Sock' },
   { img: 'docker.png', title: 'Docker' },
+  { img: 'jest.png', title: 'Jest' },
+  { img: 'nextjs.png', title: 'NextJS' },
 ];
 
 const { animState, setAnimState } = inject('animState');
