@@ -134,8 +134,7 @@ onMounted(() => {
                             <div class="year-description">{{ project.type }}</div>
                         </div>
                     </div>
-                    <ProjectCard v-for="p in  project.projects " :title="p.name" :tags="p.tags" :image="p.images"
-                        class="mb-3 left-project">
+                    <ProjectCard v-for="p in  project.projects " :project="p" class="mb-3 left-project">
                         {{ p.description }}
                     </ProjectCard>
                 </div>
@@ -151,8 +150,7 @@ onMounted(() => {
                             <div class="year-description">{{ project.type }}</div>
                         </div>
                     </div>
-                    <ProjectCard v-for="p in  project.projects " :title="p.name" :tags="p.tags" :image="p.images"
-                        class="mb-3 right-project">
+                    <ProjectCard v-for="p in  project.projects " :project="p" class="mb-3 right-project">
                         {{ p.description }}
                     </ProjectCard>
                 </div>

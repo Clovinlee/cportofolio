@@ -7,7 +7,8 @@ import windowScreenSize from '../helper/windowScreen';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const props = defineProps(['title', 'tags', 'image'])
+const props = defineProps(["project"])
+const project = props.project;
 
 const { isMobile } = windowScreenSize(500);
 
@@ -79,28 +80,53 @@ onMounted(() => {
 
 <template>
     <FancyBox>
-        <div :id="'dialog-content-' + props.title" style="display:none; width: 75%;">
-            <h2 class="">{{ props.title }}</h2>
-            <p :style="{ fontSize: isMobile ? '1rem' : '1.2rem' }">{{ rawWords }}</p>
-            <FancyBox :options="{
-                Carousel: {
-                    infinite: true,
+        <div :id="'dialog-content-' + project.name" style="display:none; width: 75%;">
+            <h2 class="fw-bold">{{ project.name }}
+                <font-awesome-icon class="fa-icon ms-2" :icon="['fa', project.platform != null ? project.platform : 'globe']" />
+            </h2>
+            <hr style="border:2px solid var(--blue); opacity:1;  max-width: 55%;" class="m-0 p-0" ref="hr">
 
-                },
-            }">
-                <a :href="`/images/projects/${img}`" v-for="img in  props.image " data-fancybox="gallery">
-                    <img :src="`/images/projects/${img}`" class="m-2"
+            <div class="mb-2"></div>
+
+            <div class="fw-bold">
+                DESCRIPTION
+            </div>
+            <p class="text-justify" :style="{ fontSize: isMobile ? '0.7rem' : '0.9rem' }">{{ rawWords }}</p>
+
+            <div class="fw-bold">
+                TECH STACK
+            </div>
+            <div class="mb-3"> 
+                <span class="badge rounded-pill text-bg-primary me-1" v-for=" tag  in  project.tags ">{{ tag }}</span>
+            </div>
+
+            <div class="fw-bold">
+                IMAGES
+            </div>
+            <h6 v-if="project.images.length == 0">
+                -
+            </h6>
+            <FancyBox :options="{
+            Carousel: {
+                infinite: true,
+
+            },
+        }"
+        class="d-flex flex-wrap"
+        style="margin-left: -10px; margin-top: -4px;">
+                <a :href="`/images/projects/${img}`" v-for="img in project.images " data-fancybox="gallery">
+                    <img :src="`/images/projects/${img}`" class="m-2" style="border-radius: 5px;"
                         :style="{ maxWidth: isMobile ? '150px' : '200px', height: 'auto' }" />
                 </a>
             </FancyBox>
         </div>
-        <div data-fancybox :data-src="'#dialog-content-' + props.title" class="project-card" ref="card"
-            :style="{ 'background-image': `url('/images/projects/${props.image[0]}')` }">
+        <div data-fancybox :data-src="'#dialog-content-' + project.name" class="project-card" ref="card"
+            :style="{ 'background-image': project.images.length != 0 ? `url('/images/projects/${project.images[0]}')` : `url('/images/no-image.png')` }">
             <div class="project-card-shade" ref="shade"></div>
             <div class="project-content" ref="content">
                 <div ref="title" class=''>
                     <div class="project-title max-line-2 px-2">
-                        {{ props.title }}
+                        {{ project.name }}
                     </div>
                     <hr style="border:2px solid var(--blue); opacity:1;  max-width: 95%;" class="m-0 p-0" ref="hr">
                 </div>
@@ -109,7 +135,7 @@ onMounted(() => {
                         <slot></slot>
                     </p>
                     <div class="project-tags d-flex flex-wrap gap-1 mt-1" ref="tags">
-                        <span class="badge " v-for=" tag  in  props.tags ">{{ tag }}</span>
+                        <span class="badge " v-for=" tag  in  project.tags ">{{ tag }}</span>
                     </div>
                 </div>
             </div>
