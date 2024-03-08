@@ -120,7 +120,7 @@ export var data_projects = [
                 name : "Study of Explainable Artificial Intelligence (XAI) Using Model Agnostic Method SHAP for Regression",
                 patform:"globe",
                 description : "This is my thesis project. The project is about the study of Explainable Artificial Intelligence using Model Agnostic Method SHAP for Regression. The final aim of the project is to understand how SHAP works as XAI tool and implement the SHAP into a dashboard visualization with multiple models. The project was done primarily using python, jupyter, streamlit, and various python libraries such as numpy, pandas, scikit-learn, etc.",
-                images : ["ta1.png","ta22.png","ta3.png","ta4.png","ta5.png","ta6.png"],
+                images : ["ta1.png","ta2.png","ta3.png","ta4.png","ta5.png","ta6.png"],
                 tags: ["Web", "Python", "Streamlit", "SHAP"],
             },
         ],
