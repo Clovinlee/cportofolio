@@ -45,6 +45,10 @@ let skillImages = [
   { img: 'docker.png', title: 'Docker' },
   { img: 'jest.png', title: 'Jest' },
   { img: 'nextjs.png', title: 'NextJS' },
+  { img: 'graphql.png', title: 'GraphQL' },
+  { img: 'mysql.png', title: 'MySQL' },
+  { img: 'mongodb.png', title: 'MongoDB' },
+  { img: 'oracle.png', title: 'Oracle' },
 ];
 
 const { animState, setAnimState } = inject('animState');
