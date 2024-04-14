@@ -40,7 +40,7 @@ export var data_projects = [
                 name : "Web Financial Management App",
                 patform:"globe",
                 description : "Web based app for user to manage their financial spending / invest / advice. Made using PHP, MySQL, and various library like payment gateway: midtrans, and phpemailer. The app has 2 main page : the landing page which is static and the other is dashboard page which is dynamic. The dashboard page has feature for user to add, edit, delete, and view their financial data. The app also has feature for user to get financial advice based on their financial data.",
-                images : ["aplin_dashboard.png", "aplin_ratio.png"],
+                images : ["aplin_dashboard.jpg", "aplin_kesehatan.png", "aplin_keuangan.jpg","aplin_rasio.png"],
                 tags: ["Web", "MySQL", "PHP", "Midtrans", "Tailwind"],
             },
            
@@ -135,6 +135,13 @@ export var data_projects = [
                 description : "A full stack NextJS website with dockerization using JS as the main language, Mongoose (MongoDB) as the NoSQL database, MUI as the front end library, and gitlab & docker for the CI. The website has basic feature of authentication using next-auth(with JWT) for email credential and github credential. The web also has CRUD functionality of REST API and GraphQL with both routes protected using middleware. The project also has testing functionality using JEST for unit / integration testing. The CD was not done because of the limitation of resources. The project was made mainly because of learning purpose.",
                 images : ["next1.png","next3.png","next4.png","next5.png","next6.png"],
                 tags: ["Web", "NextJS", "JS", "React", "MongoDB", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL"],
+            },
+            {
+                name : "Go Backend",
+                patform:"globe",
+                description : "Simple CRUD with Authorization Backend REST API using GoLang. Using GORM as the ORM, and JWT concept for authorization. Database used was postgres from supabase",
+                images : [],
+                tags: ["Web", "Rest API", "GoLang", "Postgres"],
             },
         ],
     },
