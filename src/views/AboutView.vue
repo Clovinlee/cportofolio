@@ -30,6 +30,7 @@ let skillImages = [
   { img: 'php.png', title: 'PHP' },
   { img: 'javascript.png', title: 'JavaScript' },
   { img: 'typescript.png', title: 'TypeScript' },
+  { img: 'go.png', title: 'GoLang' },
   { img: 'laravel.png', title: 'Laravel' },
   { img: 'vue.png', title: 'Vue.js' },
   { img: 'react.png', title: 'React' },
@@ -49,6 +50,7 @@ let skillImages = [
   { img: 'mysql.png', title: 'MySQL' },
   { img: 'mongodb.png', title: 'MongoDB' },
   { img: 'oracle.png', title: 'Oracle' },
+  { img: 'postgre.png', title: 'PostgreSQL' },
 ];
 
 const { animState, setAnimState } = inject('animState');
