@@ -130,18 +130,18 @@ export var data_projects = [
         type: "Personal Project",
         projects: [
             {
-                name : "Next JS Website with Docker",
+                name : "Next JS Website with Docker and GraphQL",
                 patform:"globe",
                 description : "A full stack NextJS website with dockerization using JS as the main language, Mongoose (MongoDB) as the NoSQL database, MUI as the front end library, and gitlab & docker for the CI. The website has basic feature of authentication using next-auth(with JWT) for email credential and github credential. The web also has CRUD functionality of REST API and GraphQL with both routes protected using middleware. The project also has testing functionality using JEST for unit / integration testing. The CD was not done because of the limitation of resources. The project was made mainly because of learning purpose.",
                 images : ["next1.png","next3.png","next4.png","next5.png","next6.png"],
-                tags: ["Web", "NextJS", "JS", "React", "MongoDB", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL"],
+                tags: ["Web", "NextJS", "JS", "React", "MongoDB", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL", "Testing"],
             },
             {
                 name : "Go Backend",
                 patform:"globe",
-                description : "Simple CRUD with Authorization Backend REST API using GoLang. Using GORM as the ORM, and JWT concept for authorization. Database used was postgres from supabase",
-                images : [],
-                tags: ["Web", "Rest API", "GoLang", "Postgres"],
+                description : "Backend CRUD with Authorization Backend REST API using GoLang. Using GORM as the ORM, and JWT concept for authorization. Database used was postgres from supabase. Also added an additional feature, an automated test of integration testing of endpoints.",
+                images : ["golang_backend1.png"],
+                tags: ["Web", "Rest API", "GoLang", "Postgres", "Testing"],
             },
         ],
     },
