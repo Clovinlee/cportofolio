@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import ProjectCard from '../components/ProjectCard.vue';
 
 import { data_projects } from '../data-projects';
+import { data_projects_featured } from '../data-projects-featured';
 import windowScreenSize from '../helper/windowScreen';
 import LoadingScreen from '../components/LoadingScreen.vue';
 
@@ -15,7 +16,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const text_my = ref(null);
 const text_project = ref(null);
+
+const text_featured = ref(null);
+const text_project2 = ref(null);
+
 const text_scroll = ref(null);
+
+const container_project_featured = ref(null);
 
 const { animState, setAnimState } = inject('animState');
 const idxAnim = 2;
@@ -101,7 +108,12 @@ onMounted(() => {
 
     if (!animState.value[idxAnim]) {
         let tl = gsap.timeline({ delay: transitionAnimDelay.transitionAnimDelay });
-        tl.fromTo(text_my.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, delay: 0.6 });
+        tl.fromTo(text_featured.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, delay: 0.6 });
+        tl.fromTo(text_project2.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.8");
+
+        tl.fromTo(container_project_featured.value, {opacity: 0 }, { ease: "power4.out", opacity: 1, duration: 3, }, "<0.8");
+
+        tl.fromTo(text_my.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2,} , "<0.9");
         tl.fromTo(text_project.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.8");
         tl.fromTo(text_scroll.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<1").then(() => {
             setAnimState({ position: idxAnim, value: true });
@@ -117,16 +129,48 @@ onMounted(() => {
         <LoadingScreen />
 
         <div id="section-project-content"> <!-- LENIS CONTAINER -->
+
+            <div class="spacer d-flex flex-column justify-content-center align-items-center">
+                <div class="lato-header d-flex justify-content-center">
+                    <div class="lato-header d-inline-block me-3" ref="text_featured">Featured</div>
+                    <div ref="text_project2" class="lato-header d-inline-block" v-if="!isMobile"
+                        style="color:var(--orange)">
+                        Projects.
+                    </div>
+                    <div v-else></div> <!-- Placeholder for Projects. -->
+                </div>
+                <div v-if="isMobile" ref="text_project2" class="lato-header d-flex justify-content-center" style="color:var(--orange)">
+                    Projects.
+                </div>
+            </div>
+
+
+            <div ref="container_project_featured">
+                <div v-if="!isMobile" class="d-flex justify-content-evenly align-center container">
+                    <ProjectCard v-for="p in data_projects_featured " :project="p" style="z-index: 0;" :featured="1">
+                        {{ p.description }}
+                    </ProjectCard>
+                </div>
+                <div v-else class="d-flex align-items-center justify-center overflow-x-scroll mx-3 px-3 gap-5">    
+                    <ProjectCard v-for="p in data_projects_featured " :project="p" style="z-index: 0;" :featured="0" class="mb-3">
+                        {{ p.description }}
+                    </ProjectCard>
+                </div>
+            </div>
+
+
+
             <div class="spacer d-flex flex-column justify-content-center align-items-center mb-5">
                 <div class="lato-header mb-3 d-flex justify-content-center">
                     <div class="lato-header d-inline-block me-3" ref="text_my">My</div>
-                    <div ref="text_project" class="lato-header d-inline-block" style="color:var(--orange)">Projects.</div>
+                    <div ref="text_project" class="lato-header d-inline-block" style="color:var(--orange)">Projects.
+                    </div>
                 </div>
                 <small ref="text_scroll">scroll down below.</small>
             </div>
             <div class="d-flex"
                 :class="{ 'ms-4': isMobile, 'justify-content-center': !isMobile, 'justify-content-start': isMobile }"
-                v-for="(project, idx) in  data_projects ">
+                v-for="(project, idx) in data_projects ">
                 <div :class="{ invisible: (idx % 2 == 1) }" v-if="!isMobile">
                     <div class="overflow-hidden">
                         <div class="text-end mb-3 left-timestamp">
@@ -134,7 +178,7 @@ onMounted(() => {
                             <div class="year-description">{{ project.type }}</div>
                         </div>
                     </div>
-                    <ProjectCard v-for="p in  project.projects " :project="p" class="mb-3 left-project">
+                    <ProjectCard v-for="p in project.projects " :project="p" class="mb-3 left-project">
                         {{ p.description }}
                     </ProjectCard>
                 </div>
@@ -150,7 +194,7 @@ onMounted(() => {
                             <div class="year-description">{{ project.type }}</div>
                         </div>
                     </div>
-                    <ProjectCard v-for="p in  project.projects " :project="p" class="mb-3 right-project">
+                    <ProjectCard v-for="p in project.projects " :project="p" class="mb-3 right-project">
                         {{ p.description }}
                     </ProjectCard>
                 </div>

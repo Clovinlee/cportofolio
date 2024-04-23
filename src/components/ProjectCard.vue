@@ -7,8 +7,9 @@ import windowScreenSize from '../helper/windowScreen';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const props = defineProps(["project"])
+const props = defineProps(["project", "featured"])
 const project = props.project;
+const featured = props.featured; // 1 or 0. 1 means yes and bigger frame
 
 const { isMobile } = windowScreenSize(500);
 
@@ -120,7 +121,7 @@ onMounted(() => {
                 </a>
             </FancyBox>
         </div>
-        <div data-fancybox :data-src="'#dialog-content-' + project.name" class="project-card" ref="card"
+        <div data-fancybox :data-src="'#dialog-content-' + project.name" :class="['project-card', { 'project-card-featured': props.featured == 1 }]" ref="card"
             :style="{ 'background-image': project.images.length != 0 ? `url('/images/projects/${project.images[0]}')` : `url('/images/no-image.png')` }">
             <div class="project-card-shade" ref="shade"></div>
             <div class="project-content" ref="content">
@@ -170,6 +171,11 @@ onMounted(() => {
     overflow: hidden;
 
     border: 2px solid var(--grey);
+}
+
+.project-card-featured{
+    height: clamp(200px, 19vw, 400px);
+    width: clamp(200px, 19vw, 400px);
 }
 
 @media (max-width: 500px) {}
