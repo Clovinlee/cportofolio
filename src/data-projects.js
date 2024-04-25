@@ -21,21 +21,22 @@ export var data_projects = [
                 patform:"globe",
                 description: "A mockup catalogue part of E-commerce website using Go Gin, and GORM as the main framework for the backend and Vue3 with Vuetify as the main framework for frontend. The project has advanced query filter, search feature, and pagination of product with lazy loading. The backend uses MVC-Repository pattern along with dependency injection practice. The project was made for learning purpose.",
                 images : ["cmarket1.png","cmarket2.png","cmarket3.png","cmarket4.png","cmarket5.png","cmarket6.png"],
-                tags: ["Web", "Rest API", "GoLang", "Postgres", "Vue", "Vuetify"],
+                tags: ["Web", "Rest API", "GoLang", "Gin", "Gorm", "Postgres", "Vue", "Vuetify"],
+
             },
             {
                 name : "Go Backend with User Authorization",
                 patform:"globe",
                 description: "CRUD Backend application as REST API using GoLang as the main language, gin as the framework, and GORM as the ORM. The application has full CRUD functionality with user authorization using JWT concept. Application also has user registration, login, and logout feature. The database used was postgres from supabase. The project was made for learning purpose.",
                 images : ["golang_backend1.png"],
-                tags: ["Web", "Rest API", "GoLang", "Postgres", "Testing"],
+                tags: ["Web", "Rest API", "GoLang", "Gin","Gorm", "Postgres", "Testing"],
             },
             {
                 name : "Next JS Website with Docker and GraphQL",
                 patform:"globe",
                 description : "A full stack NextJS website with dockerization using JS as the main language, Mongoose (MongoDB) as the NoSQL database, MUI as the front end library, and gitlab & docker for the CI. The website has basic feature of authentication using next-auth(with JWT) for email credential and github credential. The web also has CRUD functionality of REST API and GraphQL with both routes protected using middleware. The project also has testing functionality using JEST for unit / integration testing. The CD was not done because of the limitation of resources. The project was made mainly because of learning purpose.",
                 images : ["next1.png","next3.png","next4.png","next5.png","next6.png"],
-                tags: ["Web", "NextJS", "JS", "React", "MongoDB", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL", "Testing"],
+                tags: ["Web", "NextJS", "JS", "React", "MongoDB", "Mongoose", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL", "Testing"],
             }
         ],
     },

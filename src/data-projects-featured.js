@@ -33,6 +33,6 @@ export var data_projects_featured = [
         patform:"globe",
         description: "A mockup catalogue part of E-commerce website using Go Gin, and GORM as the main framework for the backend and Vue3 with Vuetify as the main framework for frontend. The project has advanced query filter, search feature, and pagination of product with lazy loading. The backend uses MVC-Repository pattern along with dependency injection practice. The project was made for learning purpose.",
         images : ["cmarket1.png","cmarket2.png","cmarket3.png","cmarket4.png","cmarket5.png","cmarket6.png"],
-        tags: ["Web", "Rest API", "GoLang", "Postgres", "Vue", "Vuetify"],
+        tags: ["Web", "Rest API", "GoLang", "Gin", "Gorm", "Postgres", "Vue", "Vuetify"],
     },
 ];
