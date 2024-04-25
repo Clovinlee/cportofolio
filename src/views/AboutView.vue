@@ -178,28 +178,26 @@ onMounted(() => {
             <hr ref="hr" style="border: 2px solid var(--white); opacity:1" class="m-0 p-0 rotate-vertical mb-2">
             <div class="text-justify overflow-hidden">
               <div ref="paragraphs">
-                <p ref="p1">Hi I'm <b style="color:var(--blue);">Chrisanto Sinatra</b>, last semester student at ISTTS.
+                <p ref="p1">Hi I'm <b style="color:var(--blue);">Chrisanto Sinatra</b>, graduate of Information System bachelor's degree program from Institut Sains dan Teknologi Terpadu Surabaya, with <b>near-perfect GPA.</b>
                   I've
                   code since my first semester at university and been very passionate about it. I'm interested and eager
                   in
                   learning new framework or technology in my field. I believe that anything can be <b>learned</b> with
                   given
                   time and motivation!</p>
-                <p ref="p2">When I was still an active student (lower semester), I took an <b>active</b> part in my
+                <p ref="p2">During my study period, I took an <b>active</b> part in my
                   university
                   organization. I mostly take the role of <b>tutoring</b> division (if available) and <b>secretary</b>
                   position. Through my experience, I learned how to communicate and work together as a team. With that in
                   mind, I can keep improving myself to be a <b>reliable</b> person.
                 </p>
                 <p ref="p3">During the project period at my university, I took an <b>active</b> part in all of my
-                  projects. I took pride in all of the projects that I've done since. I've my <b>standard</b> in all of my
-                  project, and by fulfilling it I can look back and be proud of what I did. The past projects that I've
-                  completed also helped me to <b>improve</b> myself when undertaking future project.</p>
+                  projects. I always try to contribute according to my skill and capabilities. As a result, many of my project were considered as the best project at that period and receives perfect mark. The past projects that I've
+                  done also helped me to <b>improve</b> myself when undertaking future project.</p>
                 <p ref="p4" class="mb-1">
                   In my free time, I do try to <b>learn</b> something new that can <b>enhance</b> my skill set. There are
                   also
-                  moments when I'm exhausted, so I opt for some personal time doing my hobby. However, as I'm in my last
-                  semester, I do try to make steady progress to my final project.</p>
+                  moments when I'm exhausted, so I opt for some personal time doing my hobby. Since I've graduated, I always look forward to any opportunities may come.</p>
               </div>
             </div>
           </div>
