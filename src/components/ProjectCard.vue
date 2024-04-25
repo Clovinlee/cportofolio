@@ -174,8 +174,8 @@ onMounted(() => {
 }
 
 .project-card-featured{
-    height: clamp(200px, 19vw, 400px);
-    width: clamp(200px, 19vw, 400px);
+    height: clamp(200px, 18.5vw, 400px);
+    width: clamp(200px, 18.5vw, 400px);
 }
 
 @media (max-width: 500px) {}

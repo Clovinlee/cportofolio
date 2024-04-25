@@ -111,9 +111,9 @@ onMounted(() => {
         tl.fromTo(text_featured.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, delay: 0.6 });
         tl.fromTo(text_project2.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.8");
 
-        tl.fromTo(container_project_featured.value, {opacity: 0 }, { ease: "power4.out", opacity: 1, duration: 3, }, "<0.8");
+        tl.fromTo(container_project_featured.value, { opacity: 0 }, { ease: "power4.out", opacity: 1, duration: 3, }, "<0.8");
 
-        tl.fromTo(text_my.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2,} , "<0.9");
+        tl.fromTo(text_my.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.9");
         tl.fromTo(text_project.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<0.8");
         tl.fromTo(text_scroll.value, { yPercent: -100, opacity: 0 }, { ease: "power4.out", yPercent: 0, opacity: 1, duration: 2, }, "<1").then(() => {
             setAnimState({ position: idxAnim, value: true });
@@ -139,22 +139,34 @@ onMounted(() => {
                     </div>
                     <div v-else></div> <!-- Placeholder for Projects. -->
                 </div>
-                <div v-if="isMobile" ref="text_project2" class="lato-header d-flex justify-content-center" style="color:var(--orange)">
+                <div v-if="isMobile" ref="text_project2" class="lato-header d-flex justify-content-center"
+                    style="color:var(--orange)">
                     Projects.
                 </div>
             </div>
 
 
-            <div ref="container_project_featured">
-                <div v-if="!isMobile" class="d-flex justify-content-evenly align-center container">
-                    <ProjectCard v-for="p in data_projects_featured " :project="p" style="z-index: 0;" :featured="1">
-                        {{ p.description }}
-                    </ProjectCard>
+            <div ref="container_project_featured" class="">
+                <div v-if="!isMobile" class="d-flex justify-content-between align-center container flex-wrap">
+                    <div v-for="p in data_projects_featured">
+                        <h5 class="year mt-1">{{ p.date }}</h5>
+                        <div class="year-description">{{ p.type }}</div>
+                        <ProjectCard :project="p" style="z-index: 0;" :featured="1" class="mt-2 mb-3">
+                            {{ p.description }}
+                        </ProjectCard>
+                    </div>
                 </div>
-                <div v-else class="d-flex align-items-center justify-center overflow-x-scroll mx-3 px-3 gap-5">    
-                    <ProjectCard v-for="p in data_projects_featured " :project="p" style="z-index: 0;" :featured="0" class="mb-3">
-                        {{ p.description }}
-                    </ProjectCard>
+                <div v-else class="d-flex align-items-center justify-center overflow-x-scroll mx-3 px-3 gap-5">
+                    
+                    <div v-for="p in data_projects_featured">
+                        <h5 class="year">{{ p.date }}</h5>
+                        <div class="year-description">{{ p.type }}</div>
+                        <ProjectCard :project="p" style="z-index: 0;" :featured="1" class="">
+                            {{ p.description }}
+                        </ProjectCard>
+                    </div>
+                    
+                   
                 </div>
             </div>
 

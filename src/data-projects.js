@@ -17,19 +17,26 @@ export var data_projects = [
         type: "Personal Project",
         projects: [
             {
+                name : "E Commerce Catalogue Mock Up using GO and VUE",
+                patform:"globe",
+                description: "A mockup catalogue part of E-commerce website using Go Gin, and GORM as the main framework for the backend and Vue3 with Vuetify as the main framework for frontend. The project has advanced query filter, search feature, and pagination of product with lazy loading. The backend uses MVC-Repository pattern along with dependency injection practice. The project was made for learning purpose.",
+                images : ["cmarket1.png","cmarket2.png","cmarket3.png","cmarket4.png","cmarket5.png","cmarket6.png"],
+                tags: ["Web", "Rest API", "GoLang", "Postgres", "Vue", "Vuetify"],
+            },
+            {
+                name : "Go Backend with User Authorization",
+                patform:"globe",
+                description: "CRUD Backend application as REST API using GoLang as the main language, gin as the framework, and GORM as the ORM. The application has full CRUD functionality with user authorization using JWT concept. Application also has user registration, login, and logout feature. The database used was postgres from supabase. The project was made for learning purpose.",
+                images : ["golang_backend1.png"],
+                tags: ["Web", "Rest API", "GoLang", "Postgres", "Testing"],
+            },
+            {
                 name : "Next JS Website with Docker and GraphQL",
                 patform:"globe",
                 description : "A full stack NextJS website with dockerization using JS as the main language, Mongoose (MongoDB) as the NoSQL database, MUI as the front end library, and gitlab & docker for the CI. The website has basic feature of authentication using next-auth(with JWT) for email credential and github credential. The web also has CRUD functionality of REST API and GraphQL with both routes protected using middleware. The project also has testing functionality using JEST for unit / integration testing. The CD was not done because of the limitation of resources. The project was made mainly because of learning purpose.",
                 images : ["next1.png","next3.png","next4.png","next5.png","next6.png"],
                 tags: ["Web", "NextJS", "JS", "React", "MongoDB", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL", "Testing"],
-            },
-            {
-                name : "Go Backend",
-                patform:"globe",
-                description : "Backend CRUD with Authorization Backend REST API using GoLang. Using GORM as the ORM, and JWT concept for authorization. Database used was postgres from supabase. Also added an additional feature, an automated test of integration testing of endpoints.",
-                images : ["golang_backend1.png"],
-                tags: ["Web", "Rest API", "GoLang", "Postgres", "Testing"],
-            },
+            }
         ],
     },
     { 
@@ -46,7 +53,7 @@ export var data_projects = [
             {
                 name : "NestJS Backend",
                 patform:"globe",
-                description : "Simple CRUD with Authorization Backend REST API using NestJS. Using prsima as the ORM (including seeding & migrating), and Auth Guard JWT concept to implement the authentication strategy. The backend also has simple testing feature to check the endpoint status code using NestJS testing module. The whole backend was made for learning purpose",
+                description : "CRUD micro project with Authorization Backend REST API using NestJS. Using prsima as the ORM (including seeding & migrating), and Auth Guard JWT concept to implement the authentication strategy. The backend also has simple testing feature to check the endpoint status code using NestJS testing module. The whole backend was made for learning purpose",
                 images : [],
                 tags: ["Web", "Rest API", "NestJS", "TS", "Prisma", "MySQL"],
             },
@@ -57,9 +64,9 @@ export var data_projects = [
         type: "Internship",
         projects: [
             {
-                name : "Marble and Granite Mobile App",
+                name : "Marble and Granite Mobile App with Laravel and Flutter",
                 patform:"mobile",
-                description : "Mobile application for granite and marble company. App consist of 3 another app, separated by role. Made with flutter, and laravel as the back end using REST API concept. The app has bunch of feature and functionality such as catalogue, book, location tracking order, etc.",
+                description : "Mobile application for granite and marble company. App consist of 3 another app, separated by role. The app was made with flutter, and laravel with PHP as the back end using REST API and JWT concept. The app is used for sales, tracking, and cataloging. The application consist of numerous CRUD process, authorization, pagination with lazy loading, database management (triggers, and pro func), validation, and image request.",
                 images : ["brescia_catalog.png","brescia_penawaran1.png","brescia_penawaran2.png","brescia_penawaran3.png","brescia_pengiriman.png","brescia_sales.png","brescia_tracking.png"],
                 tags: ["Mobile", "Flutter", "Dart", "Laravel", "MySQL", "REST API"],
             },
