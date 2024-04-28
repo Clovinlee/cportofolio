@@ -83,45 +83,116 @@ onMounted(() => {
     <FancyBox>
         <div :id="'dialog-content-' + project.name" style="display:none; width: 75%;">
             <h2 class="fw-bold">{{ project.name }}
-                <font-awesome-icon class="fa-icon ms-2" :icon="['fa', project.platform != null ? project.platform : 'globe']" />
+                <font-awesome-icon class="fa-icon ms-2"
+                    :icon="['fa', project.platform != null ? project.platform : 'globe']" />
             </h2>
             <hr style="border:2px solid var(--blue); opacity:1;  max-width: 55%;" class="m-0 p-0" ref="hr">
 
             <div class="mb-2"></div>
 
-            <div class="fw-bold">
-                DESCRIPTION
+            <ul class="">
+
+                <li>
+                    <div class="fw-bold">
+                        DESCRIPTION
+                    </div>
+                    <p class="text-justify" :style="{ fontSize: isMobile ? '0.7rem' : '0.9rem' }">{{ rawWords }}</p>
+                </li>
+
+                <div v-if="project.features != null">
+                    <li>
+                        <b>FEATURES</b>
+                        <ul>
+                            <li v-for="f in project.features">
+                                {{ f }}
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+                <div style="height:12px"></div>
+                <div v-if="project.frontend != null && project.frontend.length > 0">
+                    <div v-for="(pf, idx) in project.frontend">
+                        <li>
+                            <div class="fw-bold">
+                                FRONTEND
+                            </div>
+                            <div class="text-justify">
+                                {{ pf }}
+                            </div>
+                        </li>
+                        <br v-if="idx != project.frontend.length - 1">
+                    </div>
+                </div>
+
+                <div v-if="project.backend != null && project.backend.length > 0">
+                    <div style="height:12px"></div>
+                    <div v-for="(pb, idx) in project.backend">
+                        <li>
+                            <div class="fw-bold">
+                                {{ project.backendTitle != null ? project.backendTitle[idx] : 'BACKEND' }}
+                            </div>
+                            <div class="text-justify">
+                                {{ pb }}
+                            </div>
+                        </li>
+
+                        <div style="height:12px" v-if="idx != project.backend.length - 1"></div>
+                    </div>
+                </div>
+
+                <div v-if="project.database != null">
+                    <div style="height:12px"></div>
+                    <li>
+                        <div class="fw-bold">
+                            DATABASE
+                        </div>
+                        <div class="text-justify">
+                            {{ project.database }}
+                        </div>
+                    </li>
+                </div>
+
+            </ul>
+
+            <div v-if="project.github != null">
+
+                <div v-for="git in project.github" :key="git" style="width:500px">
+                    <div v-for="(v, k) in git" :key="k">
+                        <b>{{ k }}: </b>
+                        <a :href=v target="_blank">{{ v.split("/")[v.split("/").length-1] }}</a>
+                    </div>
+                </div>
+                <br>
             </div>
-            <p class="text-justify" :style="{ fontSize: isMobile ? '0.7rem' : '0.9rem' }">{{ rawWords }}</p>
 
             <div class="fw-bold">
                 TECH STACK
             </div>
-            <div class="mb-3"> 
-                <span class="badge rounded-pill text-bg-primary me-1" v-for=" tag  in  project.tags ">{{ tag }}</span>
+            <div class="mb-3">
+                <span class="badge rounded-pill text-bg-primary me-1" v-for=" tag in project.tags ">{{ tag }}</span>
             </div>
 
             <div class="fw-bold">
                 IMAGES
             </div>
+            <hr>
             <h6 v-if="project.images.length == 0">
                 -
             </h6>
             <FancyBox :options="{
-            Carousel: {
-                infinite: true,
+                Carousel: {
+                    infinite: true,
 
-            },
-        }"
-        class="d-flex flex-wrap"
-        style="margin-left: -10px; margin-top: -4px;">
+                },
+            }" class="d-flex flex-wrap" style="margin-left: -10px; margin-top: -4px;">
                 <a :href="`/images/projects/${img}`" v-for="img in project.images " data-fancybox="gallery">
                     <img :src="`/images/projects/${img}`" class="m-2" style="border-radius: 5px;"
                         :style="{ maxWidth: isMobile ? '150px' : '200px', height: 'auto' }" />
                 </a>
             </FancyBox>
         </div>
-        <div data-fancybox :data-src="'#dialog-content-' + project.name" :class="['project-card', { 'project-card-featured': props.featured == 1 }]" ref="card"
+        <div data-fancybox :data-src="'#dialog-content-' + project.name"
+            :class="['project-card', { 'project-card-featured': props.featured == 1 }]" ref="card"
             :style="{ 'background-image': project.images.length != 0 ? `url('/images/projects/${project.images[0]}')` : `url('/images/no-image.png')` }">
             <div class="project-card-shade" ref="shade"></div>
             <div class="project-content" ref="content">
@@ -133,10 +204,10 @@ onMounted(() => {
                 </div>
                 <div ref="body" class="mb-2 px-2">
                     <p class="project-description my-2 mt-3 max-line-3 text-justify">
-                        <slot></slot>
+                        ETYA
                     </p>
-                    <div class="project-tags d-flex flex-wrap gap-1 mt-1" ref="tags">
-                        <span class="badge " v-for=" tag  in  project.tags ">{{ tag }}</span>
+                    <div class="project-tags d-flex flex-wrap gap-1 mt-1 overflow-y-hidden" ref="tags">
+                        <span class="badge" v-for=" tag in project.tags ">{{ tag }}</span>
                     </div>
                 </div>
             </div>
@@ -173,7 +244,7 @@ onMounted(() => {
     border: 2px solid var(--grey);
 }
 
-.project-card-featured{
+.project-card-featured {
     height: clamp(200px, 18.5vw, 400px);
     width: clamp(200px, 18.5vw, 400px);
 }
@@ -182,6 +253,10 @@ onMounted(() => {
 
 .project-content {
     z-index: 99;
+}
+
+.badge {
+    height: fit-content;
 }
 
 .project-card-shade {
@@ -200,7 +275,11 @@ onMounted(() => {
 .project-description {
     font-size: 0.75rem;
     font-weight: 300;
-    max-height: 3rem;
+    height: 3rem;
+}
+
+.project-tags {
+    height: 3rem;
 }
 
 .project-tags>span {

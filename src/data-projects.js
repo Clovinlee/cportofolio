@@ -1,43 +1,89 @@
 export var data_projects = [
     { 
         date: 2024, 
-        type: "Undergraduate Thesis",
-        projects: [
-            {
-                name : "Study of Explainable Artificial Intelligence (XAI) Using Model Agnostic Method SHAP for Regression",
-                patform:"globe",
-                description : "This is my thesis project. The project is about the study of Explainable Artificial Intelligence using Model Agnostic Method SHAP for Regression. The final aim of the project is to understand how SHAP works as XAI tool and implement the SHAP into a dashboard visualization with multiple models. The project was done primarily using python, jupyter, streamlit, and various python libraries such as numpy, pandas, scikit-learn, etc.",
-                images : ["ta1.png","ta2.png","ta3.png","ta4.png","ta5.png","ta6.png"],
-                tags: ["Web", "Python", "Streamlit", "SHAP"],
-            },
-        ],
-    },
-    { 
-        date: 2024, 
         type: "Personal Project",
         projects: [
             {
-                name : "E Commerce Catalogue Mock Up using GO and VUE",
-                patform:"globe",
-                description: "A mockup catalogue part of E-commerce website using Go Gin, and GORM as the main framework for the backend and Vue3 with Vuetify as the main framework for frontend. The project has advanced query filter, search feature, and pagination of product with lazy loading. The backend uses MVC-Repository pattern along with dependency injection practice. The project was made for learning purpose.",
+                name : "E Commerce Catalogue Mock Up using GO (& Spring) and VUE",
+                platform:"globe",
+                description:"A mockup catalogue part of E-commerce website with advanced queries and filters using 2 interchangeable backend: Go Gin and Java Springboot.",
+                features:[
+                    "REST API",
+                    "Lazy Loading & Pagination",
+                    "Advanced Queries & Filters",
+                    "Multiple Backend",
+                ],
+                frontend:["The frontend is made using Vue3 with Vuetify as the main framework. The filters and queries was achieved by using multiple options as checkbox, chips, and search bar. The application also has pagination feature with lazy loading using shimmmer. The page was made with reactivity in mind."],
+                backendTitle: ["JAVA BACKEND","GO BACKEND"],
+                backend:["The first backend is made using Java with Spring as the main framework and JPA for the ORM. The backend was made using MVC-Repository pattern with DI (managed by spring). The backend uses criteria, and query builder to chain queries into advanced queries and filters. The backend also uses pageable with custom DTO to return similar response as the second backend.","The second backend is made using GoLang with Gin as the main framework and GORM as the ORM. The backend uses MVC-Repository pattern with DI practice. The backend uses query builder to achieve advanced search and filter, along with pagination as the response."],
+                database:"The database used was Postgres from supabase for both backend.",
+                github:[
+                    {"Frontend Repo":"https://github.com/Clovinlee/cmarket"},
+                    {"Java Repo":"https://github.com/Clovinlee/cmarket_backend_spring"},
+                    {"Go Repo":"https://github.com/Clovinlee/cmarket_backend"},
+                ],
                 images : ["cmarket1.png","cmarket2.png","cmarket3.png","cmarket4.png","cmarket5.png","cmarket6.png"],
                 tags: ["Web", "Rest API", "GoLang", "Gin", "Gorm", "Postgres", "Vue", "Vuetify"],
-
             },
             {
                 name : "Go Backend with User Authorization",
-                patform:"globe",
-                description: "CRUD Backend application as REST API using GoLang as the main language, gin as the framework, and GORM as the ORM. The application has full CRUD functionality with user authorization using JWT concept. Application also has user registration, login, and logout feature. The database used was postgres from supabase. The project was made for learning purpose.",
+                platform:"globe",
+                description:"CRUD Backend Application as REST API using Go Gin with Authorization using JWT Concept.",
+                features: [
+                    "REST API",
+                    "User Authentication",
+                    "JWT",
+                    "CRUD",
+                ],
+                frontend:[],
+                backend:["The backend is made using Go as the main language, gin as the main framework, and GORM as the ORM of the backend. The application has full CRUD functionality with user registration, logout, authentication, and authorization using JWT concept. The application also has automated testing feature using Go test package for integration test."],
+                database:"The database used was Postgres from supabase.",
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/golang-playground"},
+                ],
                 images : ["golang_backend1.png"],
                 tags: ["Web", "Rest API", "GoLang", "Gin","Gorm", "Postgres", "Testing"],
             },
             {
-                name : "Next JS Website with Docker and GraphQL",
-                patform:"globe",
-                description : "A full stack NextJS website with dockerization using JS as the main language, Mongoose (MongoDB) as the NoSQL database, MUI as the front end library, and gitlab & docker for the CI. The website has basic feature of authentication using next-auth(with JWT) for email credential and github credential. The web also has CRUD functionality of REST API and GraphQL with both routes protected using middleware. The project also has testing functionality using JEST for unit / integration testing. The CD was not done because of the limitation of resources. The project was made mainly because of learning purpose.",
+                name : "Next JS CRUD Wensite with Docker and REST API (& GraphQL)",
+                platform:"globe",
+                description:"Full stack nextJS website using interchangeable API method of REST API and GraphQL ",
+                features: [
+                    "REST API",
+                    "GraphQL",
+                    "User Authentication",
+                    "JWT",
+                    "OAuth",
+                    "Test",
+                    "Continuous Integration",
+                ],
+                frontend: ["The frontned is made using NextJS with MUI as the main front end library. The website has both user login and registration page. The website was made with reactivity in mind, keeping the single page application concept. The web also has two different page to change the API method of using REST or GraphQL."],
+                backend: ["The backend primarily uses JS from NextJS as main framework. The backend has both method of API with REST and GraphQL separated by different endpoint. Both method handles full CRUD of the application with user authorization using JWT and OAuth. The backend also consist of integration tests using Jest test library. As a learning purpose, the application was dockerized and put into continuous integration with tests made using gitlab."],
+                database: "The database used was MongoDB from MongoDB cloud",
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/chris_sample_nextjs"}
+                ],
                 images : ["next1.png","next3.png","next4.png","next5.png","next6.png"],
-                tags: ["Web", "NextJS", "JS", "React", "MongoDB", "Mongoose", "MUI", "Docker", "Jest", "CI", "REST API", "GraphQL", "Testing"],
+                tags: ["Web", "NextJS", "React", "Docker", "Jest", "CI", "REST API", "GraphQL",],
             }
+        ],
+    },
+    { 
+        date: 2024, 
+        type: "Undergraduate Thesis",
+        projects: [
+            {
+                name : "Study of Explainable Artificial Intelligence (XAI) Using Model Agnostic Method SHAP for Regression",
+                platform:"globe",
+                description:"This is my thesis project. The project is about the study of Explainable Artificial Intelligence using Model Agnostic Method SHAP for Regression. The project was made using python as its primary tool.",
+                frontend:["The frontend of the project is made using streamlit library. The frontend has two different page consist of model & data initialization, and SHAP visualization output as the second page."],
+                backend: ["The backend consist of data preprocess, model, and  SHAP explanation model training. The project uses python as its main tool with data science library such as pandas, numpy, matplotlib, etc."],
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/shap_dashboard"}
+                ],
+                images : ["ta1.png","ta2.png","ta3.png","ta4.png","ta5.png","ta6.png"],
+                tags: ["Web", "Python", "Streamlit", "SHAP"],
+            },
         ],
     },
     { 
@@ -46,16 +92,27 @@ export var data_projects = [
         projects: [
             {
                 name : "Chris Portofolio",
-                patform:"globe",
-                description : "The static web portofolio you're seeing right now, with responsiveness concept in mind. Made from scratch using vue3 script-setup, GSAP and Lenis as the animation library, along with bootstrap and fontawesome as the front-end toolkits.",
+                platform:"globe",
+                description:"The static web portofolio you're seeing right now, with responsiveness concept in mind. Made from scratch using vue3 script-setup, GSAP and Lenis as the animation library, along with bootstrap and fontawesome as the front-end toolkits.",
+                frontend:["The frontend is amde using vue3 with script setup. The animation library used was GreenSock with Lenis as its smooth scrolling along with bootstrap and fontawesome as the front-end toolkits. The website has multiple page with different content, animation, and responsiveness in mind."],
                 images : ["porto1.png","porto2.png","porto3.png"],
                 tags: ["Web", "Vue", "GSAP", "Lenis", "Bootstrap"],
             },
             {
                 name : "NestJS Backend",
-                patform:"globe",
-                description : "CRUD micro project with Authorization Backend REST API using NestJS. Using prsima as the ORM (including seeding & migrating), and Auth Guard JWT concept to implement the authentication strategy. The backend also has simple testing feature to check the endpoint status code using NestJS testing module. The whole backend was made for learning purpose",
+                platform:"globe",
+                description:"Backend-only CRUD micro project with Authorization Backend REST API using NestJS. Using prsima as the ORM (including seeding & migrating), and Auth Guard JWT concept to implement the authentication strategy. The backend also has simple testing feature to check the endpoint status code using NestJS testing module.",
+                features: [
+                    "REST API",
+                    "User Authentication",
+                    "JWT",
+                    "CRUD",
+                    "Test",
+                    "Seed & Migration",
+                ],
+                backend:["The application was made with NestJS and Typescript as the main language. Backend has full CRUD functionality and user authentication. The application uses JWT concept for the authentication strategy. The application also has automated testing feature using Nest Test feature. The application also has seeding and migration feature using Prisma as its main ORM."],
                 images : [],
+                database: "The database used was Local MySQL",
                 tags: ["Web", "Rest API", "NestJS", "TS", "Prisma", "MySQL"],
             },
         ],
@@ -66,9 +123,22 @@ export var data_projects = [
         projects: [
             {
                 name : "Marble and Granite Mobile App with Laravel and Flutter",
-                patform:"mobile",
+                platform:"mobile",
                 description : "Mobile application for granite and marble company. App consist of 3 another app, separated by role. The app was made with flutter, and laravel with PHP as the back end using REST API and JWT concept. The app is used for sales, tracking, and cataloging. The application consist of numerous CRUD process, authorization, pagination with lazy loading, database management (triggers, and pro func), validation, and image request.",
+                features:[
+                    "Product Catalogue with Lazy Load and Filters",
+                    "Numerous Forms & Validations",
+                    "Sales Item Booking",
+                    "Sales Attendance",
+                    "Customer Item Booking",
+                    "Customer Item Tracking",
+                    "Driver Item Track Update",
+                    "Sales Attendance",
+                ],
+                frontend:["The frontend is made using flutter with dart as the main language. The app has 3 different role with different feature. The application is made with reactivity and state management in mind. The state management used was getx package. The app uses multiple library, such as shimmer for lazy loading, pull to refresh, charts, and etc."],
+                backend:["Backend uses laravel as its main framework with PHP as the main language. The backend has numerous CRUD and validations with request and response handling. The backend uses JWT concept for user authentication and authorization. The backend also handle image upload from the mobile device to the server. The backend also consist of multiple database triggers and procedure functions."],
                 images : ["brescia_catalog.png","brescia_penawaran1.png","brescia_penawaran2.png","brescia_penawaran3.png","brescia_pengiriman.png","brescia_sales.png","brescia_tracking.png"],
+                database: "The database used was Server MySQL",
                 tags: ["Mobile", "Flutter", "Dart", "Laravel", "MySQL", "REST API"],
             },
         ],
@@ -79,7 +149,7 @@ export var data_projects = [
         projects: [
             {
                 name : "Cinema Booking Web App",
-                patform:"globe",
+                platform:"globe",
                 description : "Web based multi-branch app for user to book cinema ticket. Made using Laravel, PHP, and MySQL. Has feature for booking ticket, midtrans as payment, emailer, admin and managerial dashboard & reporting.",
                 images : ["nobar_nowplaying.png","nobar_playing.png"],
                 tags: ["Web", "Laravel", "PHP", "Midtrans", "MySQL"],
@@ -98,7 +168,7 @@ export var data_projects = [
         projects: [
             {
                 name : "Restaurant Ordering Mobile App",
-                patform:"mobile",
+                platform:"mobile",
                 description : "Mobile android app made with flutter for learning purpose. The app has feature for browsing menu, adding to favorite, and mock  up cart system. Backend made with REST API using Laravel.",
                 images : ["flutter_restaurant.png"],
                 tags: ["Mobile", "Flutter", "Dart", "Laravel",],
@@ -112,7 +182,7 @@ export var data_projects = [
         projects: [
             {
                 name : "Web Financial Management App",
-                patform:"globe",
+                platform:"globe",
                 description : "Web based app for user to manage their financial spending / invest / advice. Made using PHP, MySQL, and various library like payment gateway: midtrans, and phpemailer. The app has 2 main page : the landing page which is static and the other is dashboard page which is dynamic. The dashboard page has feature for user to add, edit, delete, and view their financial data. The app also has feature for user to get financial advice based on their financial data.",
                 images : ["aplin_dashboard.jpg", "aplin_kesehatan.png", "aplin_keuangan.jpg","aplin_rasio.png"],
                 tags: ["Web", "MySQL", "PHP", "Midtrans", "Tailwind"],

@@ -125,7 +125,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section id="section-project" style="overflow-y:scroll;" class="w-100">
+    <section id="section-project" style="overflow-y:scroll;" class="w-100 overflow-x-hidden">
         <LoadingScreen />
 
         <div id="section-project-content"> <!-- LENIS CONTAINER -->
@@ -156,8 +156,7 @@ onMounted(() => {
                         </ProjectCard>
                     </div>
                 </div>
-                <div v-else class="d-flex align-items-center justify-center overflow-x-scroll mx-3 px-3 gap-5">
-                    
+                <div v-else class="d-flex align-items-center flex-wrap justify-center mx-3 px-3 gap-5">
                     <div v-for="p in data_projects_featured">
                         <h5 class="year">{{ p.date }}</h5>
                         <div class="year-description">{{ p.type }}</div>
