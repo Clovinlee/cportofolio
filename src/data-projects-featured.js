@@ -57,7 +57,7 @@ export var data_projects_featured = [
         tags: ["Web", "Rest API", "GoLang", "Gin","Gorm", "Postgres", "Testing"],
     },
     {
-        name : "E Commerce Catalogue Mock Up using GO and VUE",
+        name : "E Commerce Catalogue Mock Up using GO (& Spring) and VUE",
         date: 2024,
         type:"Personal",
         platform:"globe",
@@ -68,7 +68,7 @@ export var data_projects_featured = [
             "Advanced Queries & Filters",
             "Multiple Backend",
         ],
-        frontend:["The frontend is made using Vue3 with Vuetify as the main framework. The filters and queries was achieved by using multiple options as checkbox, chips, and search bar. The application also has pagination feature with lazy loading using shimmmer. The page was made with reactivity in mind."],
+        frontend:["The frontend is made using Vue3 with Vuetify as the main framework. The filters and queries was achieved by using multiple options as checkbox, chips, and search bar. The application also has pagination feature with lazy loading using shimmer. The page was made with reactivity in mind."],
         backendTitle: ["JAVA BACKEND","GO BACKEND"],
         backend:["The first backend is made using Java with Spring as the main framework and JPA for the ORM. The backend was made using MVC-Repository pattern with DI (managed by spring). The backend uses criteria, and query builder to chain queries into advanced queries and filters. The backend also uses pageable with custom DTO to return similar response as the second backend.","The second backend is made using GoLang with Gin as the main framework and GORM as the ORM. The backend uses MVC-Repository pattern with DI practice. The backend uses query builder to achieve advanced search and filter, along with pagination as the response."],
         database:"The database used was Postgres from supabase for both backend.",

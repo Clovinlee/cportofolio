@@ -13,7 +13,7 @@ export var data_projects = [
                     "Advanced Queries & Filters",
                     "Multiple Backend",
                 ],
-                frontend:["The frontend is made using Vue3 with Vuetify as the main framework. The filters and queries was achieved by using multiple options as checkbox, chips, and search bar. The application also has pagination feature with lazy loading using shimmmer. The page was made with reactivity in mind."],
+                frontend:["The frontend is made using Vue3 with Vuetify as the main framework. The filters and queries was achieved by using multiple options as checkbox, chips, and search bar. The application also has pagination feature with lazy loading using shimmer. The page was made with reactivity in mind."],
                 backendTitle: ["JAVA BACKEND","GO BACKEND"],
                 backend:["The first backend is made using Java with Spring as the main framework and JPA for the ORM. The backend was made using MVC-Repository pattern with DI (managed by spring). The backend uses criteria, and query builder to chain queries into advanced queries and filters. The backend also uses pageable with custom DTO to return similar response as the second backend.","The second backend is made using GoLang with Gin as the main framework and GORM as the ORM. The backend uses MVC-Repository pattern with DI practice. The backend uses query builder to achieve advanced search and filter, along with pagination as the response."],
                 database:"The database used was Postgres from supabase for both backend.",
@@ -148,15 +148,41 @@ export var data_projects = [
         type: "5th semester",
         projects: [
             {
-                name : "Cinema Booking Web App",
+                name : "MTix Mockup with Laravel",
                 platform:"globe",
-                description : "Web based multi-branch app for user to book cinema ticket. Made using Laravel, PHP, and MySQL. Has feature for booking ticket, midtrans as payment, emailer, admin and managerial dashboard & reporting.",
+                description : "A mockup web application of MTix (Movie Ticketing) with multi branch using Laravel as the main framework. The app consist of user authentication, numerous CRUD, and reporting. The application also has payment feature using midtrans mockup payment. The app has three role to manage the platform: owner with access to application reporting and master user, admin with master movies & foods, and user to book tickets and foods",
+                features:[
+                    "Multi Branch",
+                    "User Authentication",
+                    "Payment Gateway with Midtrans",
+                    "Various master and CRUD",
+                    "Reporting",
+                    "Ticket & Food Booking",
+                ],
+                frontend:["The frontend is made using laravel blade as the main template engine. The app has 3 different role with different feature. The application is made with reactivity in mind. The app uses multiple library, such as chartjs for reporting, and bootstrap."],
+                backend:["Backend uses laravel as its main framework with PHP as the main language. The backend has numerous CRUD and validations with request and response handling. The backend is connected with midtrans as payment gateway where as the result of the payment will be connected into response endpoint of the server to update the database."],
+                database: "The database used was Local MySQL",
                 images : ["nobar_nowplaying.png","nobar_playing.png"],
+                github: [
+                    {"Main Repo":"https://github.com/Clovinlee/NoBar"}
+                ],
                 tags: ["Web", "Laravel", "PHP", "Midtrans", "MySQL"],
             },
             {
-                name : "Job Seeking Android App",
-                description : "Android application for job seeker to find & post job vacancy. Made using kotlin and laravel as backend. Has feature for search, apply, & post job vacancy, chat, add friend, and modify user profile.",
+                name : "Linkedin Mockup Mobile App with Kotlin & Laravel",
+                description : "Linkedin mockup as an Android application for job seeker to find & post job vacancy. Made using kotlin and laravel as backend.",
+                features:[
+                    "Job Posting & Filters",
+                    "Synchronous Chat",
+                    "Profile Management",
+                    "Profile Connect (Friend)",
+                ],
+                frontend:["The frontend is made with kotlin as the main language. The app has reactivitiy state on the job search, and sidebar & bottom nav bar for navigation"],
+                backend:["The backend of the application uses kotlin DAO and DTO to transform request & response. The backend of the server uses laravel and PHP as the main language. The backend consist of user authentication & authorization using JWT concept, and multiple CRUD process."],
+                github: [
+                    {"Mobile Repo":"https://github.com/Clovinlee/GaweKerjo"},
+                    {"Backend Repo":"https://github.com/Clovinlee/GaweKerjo_API"}
+                ],
                 images : ["mdp_app.png"],
                 tags: ["Android", "Kotlin", "Laravel", "MySQL", "REST API"],
             },
@@ -169,7 +195,17 @@ export var data_projects = [
             {
                 name : "Restaurant Ordering Mobile App",
                 platform:"mobile",
-                description : "Mobile android app made with flutter for learning purpose. The app has feature for browsing menu, adding to favorite, and mock  up cart system. Backend made with REST API using Laravel.",
+                description : "Mobile android app made with flutter and laravel for learning purpose. The app consist of 4 main page. User can also \"simulate\" of ordering food using cart-like system.",
+                features:[
+                    "Featured Menu",
+                    "Browsing Menu",
+                    "Cart Ordering",
+                ],
+                frontend:["The frontend was made purely with flutter without any other library. As one of the main UI aspect was the food menu, which was made to look like it is \"popping\" out of the menu, and this was achieved using stack."],
+                backend:["The backend was made using laravel with PHP. The backend handle only user cart system."],
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/crestaurant_flutter"}
+                ],
                 images : ["flutter_restaurant.png"],
                 tags: ["Mobile", "Flutter", "Dart", "Laravel",],
             },
@@ -181,9 +217,24 @@ export var data_projects = [
         type: "4th semester",
         projects: [
             {
-                name : "Web Financial Management App",
+                name : "Web Financial Management App with Native PHP",
                 platform:"globe",
-                description : "Web based app for user to manage their financial spending / invest / advice. Made using PHP, MySQL, and various library like payment gateway: midtrans, and phpemailer. The app has 2 main page : the landing page which is static and the other is dashboard page which is dynamic. The dashboard page has feature for user to add, edit, delete, and view their financial data. The app also has feature for user to get financial advice based on their financial data.",
+                description : "Web based app for user to manage their financial spending / invest / advice using PHP, MySQL, and various library like payment gateway: midtrans, and phpemailer. The app has 2 main page : the landing page which is static and the other is dashboard page which is dynamic. The dashboard page has feature for user to add, edit, delete, and view their financial data. The app also has feature for user to get financial advice based on their financial data.",
+                features:[
+                    "User financial CRUD with categories spending",
+                    "Payment gateway (membership)",
+                    "Financial Dashboard",
+                    "Money spend limitation & reminder",
+                    "User Authentication with PHPEmailer",
+                    "Financial Analysis through %ratio",
+                ],
+                frontend:["The frontend of the application uses purely HTML, and CSS with tailwind as its toolkit. The app consist of two main page, the landing page and application page. The application page was a single page app built on pure HTML using ajax to fetch the request asynchronously. The app also has sidebar to navigate around the application page getting the page to reload."],
+                backend:[
+                    "The backend was made using purely native PHP with MVC pattern. The backend has multiple CRUD process, and user authentication using PHPEmailer confirmation. The backend also has payment gateway integrated using midtrans.",
+                ],
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/CalonSultan"}
+                ],
                 images : ["aplin_dashboard.jpg", "aplin_kesehatan.png", "aplin_keuangan.jpg","aplin_rasio.png"],
                 tags: ["Web", "MySQL", "PHP", "Midtrans", "Tailwind"],
             },
@@ -197,7 +248,18 @@ export var data_projects = [
             {
                 name : "Java Desktop Point of Sales",
                 platform: "desktop",
-                description : "A desktop application for Point of Sales using Java and MySQL. The premise were quite similar with previous project that I made using C#. The differences are the app were developed with OOP concept and using MySQL as database which need to be connected with JDBC connector etc.",
+                description : "A desktop application for Point of Sales using Java and MySQL. The premise were quite similar with previous project that I made using C#. The differences are the app were developed with OOP concept and using MySQL as database which need to be connected with JDBC connector etc. The app consist of two roles: admin and cashier. Admin can do CRUD process, and cashier can do transaction. The app has simple repoorting converted into PDF",
+                features:[
+                    "User Authentication",
+                    "CRUD Master",
+                    "Transaction",
+                    "Reporting",
+                ],
+                frontend: ["Frontend of the application was made purely using java form toolkit which has native windows display. However the app was tweaked into having advanced display such as sidebar, and dynamic login screen. The frontend of application consist of multiple CRUD for admin, and cashier."],
+                backend: ["The backend of the application was made using Java as the main language. The backend has multiple CRUD process, and user authentication. The backend also has reporting feature to PDF."],
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/PBO_Proyek"}
+                ],
                 images : ["pbo_transaction.png", "pbo_login.png", "pbo_admin.png"],
                 tags: ["Desktop", "Java", "MySQL", "OOP"],
             },
@@ -205,6 +267,11 @@ export var data_projects = [
                 name: "Desktop ERP Inventory Module",
                 platform: "desktop",
                 description: "A desktop application for Inventory Module using .NET, Oracle as Database, and Bunifu UI framework. It has multiple functionality such as CRUD master, and warehouse transaction request/access to another warehouse. The application also provide product tracking to track product movement within the app to function as history transfer log. The app also has standard reporting feature using Crystal Report.",  
+                frontend:["The frontend was made purely using C# .NET form toolkit. The application also has extendable sidebar which was made customly for page navigation inside of the form."],
+                backend:["The backend was made using windows SQL server with C# and SQL."],
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/ACS_ProjectV2"}
+                ],
                 images: ['acs_menu.png', 'acs_login.png'],
                 tags: ['Desktop','.NET', 'C#', 'SQL', 'Oracle'],
             },
@@ -218,7 +285,12 @@ export var data_projects = [
                 name : ".NET Desktop Point of Sales",
                 platform: "desktop",
                 description : "A desktop application for Point of Sales using C# and SQL Server. User can login as admin or cashier where as the admin have CRUD access to users and products. The app also has reporting feature using Crystal Report which are introduced in my later semester but I implemented one before the class. Cashier can do transaction, and the app will generate receipt for the transaction (pdf).",
+                frontend:["The frontend was made purely using C# .NET form toolkit. The application also uses static sidebar which was made customly for page navigation inside of the form. The app also has reporting system using C# crystal report."],
+                backend:["The backend was made using windows SQL server with C# and SQL."],
                 images : ["pv_dashboard.png", "pv_login.png", "pv_sales.png", "pv_report.png"],
+                github:[
+                    {"Main Repo":"https://github.com/Clovinlee/Compufy-PV-Project"}
+                ],
                 tags: ["C#", ".NET", "SQL Server", "Desktop", "Crystal Report"],
             },
         ]
