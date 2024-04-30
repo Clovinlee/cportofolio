@@ -167,8 +167,8 @@ onMounted(() => {
           <div class="d-flex"> <!--INNTER DIV-->
             <!-- ABOUT ME -->
             <div class="d-flex justify-content-end me-1">
-              <div class="rotate-vertical m-0 p-0 mb-2 overflow-hidden" style="font-size: 2rem;">
-                <div class="" ref="aboutme">
+              <div class="rotate-vertical m-0 p-0 mb-2 aboutmecontainer" style="font-size: 2rem;">
+                <div class="d-inline-block" ref="aboutme">
                   <b style="color: var(--white);">ABOUT ME</b>
                 </div>
               </div>
@@ -223,6 +223,16 @@ onMounted(() => {
 @media (max-width: 500px) and (min-height:800px) {
   p {
     font-size: clamp(12px, 1.7vh, 26px);
+  }
+}
+
+.aboutmecontainer{
+  overflow: hidden;
+}
+
+@-moz-document url-prefix() {
+  .aboutmecontainer{
+    overflow: -moz-hidden-unscrollable !important;
   }
 }
 

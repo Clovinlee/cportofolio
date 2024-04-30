@@ -11,5 +11,6 @@
 <style scoped>
 #load-screen {
     background-color: var(--blue);
+    z-index: 101;
 }
 </style>

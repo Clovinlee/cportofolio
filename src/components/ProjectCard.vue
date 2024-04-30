@@ -242,6 +242,8 @@ onMounted(() => {
     overflow: hidden;
 
     border: 2px solid var(--grey);
+
+    z-index: 1;
 }
 
 .project-card-featured {

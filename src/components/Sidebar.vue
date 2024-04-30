@@ -28,6 +28,13 @@ nav a {
     color: var(--white);
 }
 
+@-moz-document url-prefix() {
+   nav{
+    padding-right: 24px !important;
+    padding-left: 28px !important;
+   }
+}
+
 nav a:hover {
     color: var(--darker-white);
 }
