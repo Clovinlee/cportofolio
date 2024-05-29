@@ -84,7 +84,7 @@ export var data_projects_featured = [
             {"Java Repo":"https://github.com/Clovinlee/cmarket_backend_spring"},
             {"Go Repo":"https://github.com/Clovinlee/cmarket_backend"},
         ],
-        images : ["cmarket1.png","cmarket2.png","cmarket3.png","cmarket4.png","cmarket5.png","cmarket6.png","cmarket7.png","cmarket8.png","cmarket9.png","cmarket10.png","cmarket_register_sequence_diagram.png","cmarket_login_sequence_diagram.png","cmarket_jwt_sequence_diagram.png"],
+        images : ["cmarket1.png","cmarket2.png","cmarket3.png","cmarket4.png","cmarket11.png","cmarket5.png","cmarket6.png","cmarket7.png","cmarket8.png","cmarket9.png","cmarket10.png","cmarket_register_sequence_diagram.png","cmarket_login_sequence_diagram.png","cmarket_jwt_sequence_diagram.png"],
         tags: ["Web", "Rest API", "GoLang", "Gin", "Gorm", "TS", "NestJS", "Postgres", "Vue", "Vuetify"],
     },
 ];
