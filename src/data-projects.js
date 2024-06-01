@@ -15,6 +15,7 @@ export var data_projects = [
                     "Advanced Queries & Filters",
                     "Multiple Backend",
                     "User Authentication (Register, Login, Role)",
+                    "Email Service (Email verification)",
                     "JWT Auth - Refresh (\"Best Practice\" Implementation)",
                 ],
                 frontend:["The frontend is made using Vue3 with Vuetify as the main framework. The filters and queries was achieved by using multiple options as checkbox, chips, and search bar. The application also has pagination feature with lazy loading using shimmer. The page was made with reactivity in mind."],
