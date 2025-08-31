@@ -86,9 +86,9 @@ onMounted(() => {
         <div class="d-flex justify-content-end mt-1">
           <hr ref="hrtop" style="border: 1px solid white; opacity: 1; border-radius:1px" class="w-65 mb-3 mt-1">
         </div>
-        <p ref="summarycontent" style="font-weight: 200; text-align: justify;" class="m-0">Enthusiastic
-          <span style="color: var(--orange);"><b>developer</b></span> and <span style="color: var(--orange);"><b>graduate</b></span>
-          of the Bachelor's degree program in Information Systems from Institut Sains dan Teknologi Terpadu Surabaya, <span style="color: var(--orange);"><b>Indonesia</b></span>.
+
+        <p ref="summarycontent" style="font-weight: 200; text-align: justify;" class="m-0">
+          Passionate <span style="color: var(--orange);"><b>developer</b></span> with 1+ year of experience in Backend Development, Spring Boot Certified Professional, AWS Certified Cloud Practitioner, Graduate of the Bachelor's degree program in Information Systems from <span style="color: var(--orange);"><b>Indonesia</b></span>
         </p>
         <hr ref="hrbottom" style="border: 1px solid white; opacity: 1; border-radius:1px" class="w-65 my-3">
       </div>

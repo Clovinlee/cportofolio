@@ -25,31 +25,31 @@ let hr2 = ref(null);
 let language = ref(null);
 
 let skillImages = [
-  { img: 'go.png', title: 'GoLang' },
+  { img: 'laravel.png', title: 'Laravel' },
   { img: 'php.png', title: 'PHP' },
+  { img: 'spring.png', title: 'Spring' },
+  { img: 'java.png', title: 'Java' },
+  { img: 'vue.png', title: 'Vue.js' },
+  { img: 'gsap.svg', title: 'Green Sock' },
   { img: 'javascript.png', title: 'JavaScript' },
   { img: 'typescript.png', title: 'TypeScript' },
-  { img: 'nestjs.png', title: 'NestJS' },
-  { img: 'laravel.png', title: 'Laravel' },
-  { img: 'cs.png', title: 'C#' },
-  { img: 'unity.png', title: 'Unity' },
-  { img: 'net.png', title: '.NET' },
-  { img: 'java.png', title: 'Java' },
-  { img: 'spring.png', title: 'Spring' },
-  { img: 'jest.png', title: 'Jest' },
-  { img: 'nextjs.png', title: 'NextJS' },
-  { img: 'graphql.png', title: 'GraphQL' },
-  { img: 'python.png', title: 'Python' },
-  { img: 'vue.png', title: 'Vue.js' },
-  { img: 'react.png', title: 'React' },
-  { img: 'gsap.svg', title: 'Green Sock' },
   { img: 'flutter.png', title: 'Flutter' },
-  { img: 'kotlin.png', title: 'Kotlin' },
   { img: 'docker.png', title: 'Docker' },
   { img: 'mysql.png', title: 'MySQL' },
   { img: 'mongodb.png', title: 'MongoDB' },
   { img: 'oracle.png', title: 'Oracle' },
   { img: 'postgre.png', title: 'PostgreSQL' },
+  { img: 'nestjs.png', title: 'NestJS' },
+  { img: 'go.png', title: 'GoLang' },
+  { img: 'cs.png', title: 'C#' },
+  { img: 'unity.png', title: 'Unity' },
+  { img: 'net.png', title: '.NET' },
+  { img: 'jest.png', title: 'Jest' },
+  { img: 'nextjs.png', title: 'NextJS' },
+  { img: 'graphql.png', title: 'GraphQL' },
+  { img: 'python.png', title: 'Python' },
+  { img: 'react.png', title: 'React' },
+  { img: 'kotlin.png', title: 'Kotlin' },
 ];
 
 const { animState, setAnimState } = inject('animState');
@@ -177,26 +177,31 @@ onMounted(() => {
             <hr ref="hr" style="border: 2px solid var(--white); opacity:1" class="m-0 p-0 rotate-vertical mb-2">
             <div class="text-justify overflow-hidden">
               <div ref="paragraphs">
-                <p ref="p1">Hi I'm <b style="color:var(--blue);">Chrisanto Sinatra</b>, graduate of Information System bachelor's degree program from Institut Sains dan Teknologi Terpadu Surabaya, with <b>near-perfect GPA.</b>
-                  I've
-                  code since my first semester at university and been very passionate about it. I'm interested and eager
-                  in
-                  learning new framework or technology in my field. I believe that anything can be <b>learned</b> with
-                  given
-                  time and motivation!</p>
-                <p ref="p2">During my study period, I took an <b>active</b> part in my
-                  university
-                  organization. I mostly take the role of <b>tutoring</b> division (if available) and <b>secretary</b>
-                  position. Through my experience, I learned how to communicate and work together as a team. With that in
-                  mind, I can keep improving myself to be a <b>reliable</b> person.
+                <p ref="p1">
+                  Hi, I'm <b style="color:var(--blue);">Chrisanto Sinatra</b>, a <b>Junior Back-End Developer</b> based
+                  in Surabaya, Indonesia,
+                  with a Bachelor's degree in Information Systems (GPA 3.99/4.00).
+                  I'm a <i>Broadcom Spring Certified Professional</i> and an <i>AWS Certified Cloud Practitioner</i>,
+                  passionate about
+                  building scalable backend systems and constantly improving my skills in modern technologies. I mainly work with Laravel, Spring Boot, and SQL. But that doesn't stop me from exploring other technologies and frameworks.
                 </p>
-                <p ref="p3">During the project period at my university, I took an <b>active</b> part in all of my
-                  projects. I always try to contribute according to my skill and capabilities. As a result, many of my project were considered as the best project at that period and receives perfect mark. The past projects that I've
-                  done also helped me to <b>improve</b> myself when undertaking future project.</p>
-                <p ref="p4" class="mb-1">
-                  In my free time, I do try to <b>learn</b> something new that can <b>enhance</b> my skill set. There are
-                  also
-                  moments when I'm exhausted, so I opt for some personal time doing my hobby. Since I've graduated, I always look forward to any opportunities may come.</p>
+
+                <p ref="p2">
+                  I have <b>1+ year of experience</b> in backend development, collaborating in <b>agile teams</b>, contributing to sprint planning, pull requests, and feature development.
+                  In my current role at <b>Jakmall.com</b>, I've designed and optimized APIs, refactored legacy code for
+                  efficiency, handled numerous <b>production issues</b>, and
+                  delivered <b>production ready</b> backend services such as real-time chat, OTP verification, and third-party
+                  integrations.
+                </p>
+                
+                <p ref="p3" class="mb-1">
+                  Outside of work, I keep <b>learning new technologies</b> such as cloud computing, containerization
+                  with Docker, Spring Boot, and advanced
+                  backend patterns. I am motivated by solving real-world problems and continuously <b>improving
+                    myself</b> to deliver reliable,
+                  impactful solutions. Always open to <b>new opportunities</b> to grow and contribute in the backend
+                  engineering field.
+                </p>
               </div>
             </div>
           </div>
@@ -226,12 +231,12 @@ onMounted(() => {
   }
 }
 
-.aboutmecontainer{
+.aboutmecontainer {
   overflow: hidden;
 }
 
 @-moz-document url-prefix() {
-  .aboutmecontainer{
+  .aboutmecontainer {
     overflow: -moz-hidden-unscrollable !important;
   }
 }
